@@ -1,0 +1,833 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/jquery.1.4.2-min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+</head>
+<body>
+<body class="header">
+
+<div class="wrap clear">
+    <a href="index.php" class="fl logo">
+        <img src="images/logo.png" alt="">
+    </a>
+    <div class="fr btn_list">
+        <ul class="clear">
+            <li class="bt1">
+                <i class="search"></i>
+            </li>
+            <li class="bt2">
+                <i class="menu"></i>
+                <div class="menu_list">
+                    <h3>Departments</h3>
+                    <ul class="menu_list_lsit">
+                        <li>
+                            <a href="">Prime Video</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Amazon Music</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Appstore for Android</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Echo & Alexa</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Fire Tablets</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Fire TV</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Kindle E-readers & Books</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Books & Audible</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Movies, Music & Games</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Electronics, Computers & Office</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Food & Grocery</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="list.php">Beauty & Health/a>
+                                <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Toys, Kids & Baby</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Clothing, Shoes & Jewelry</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="list.php">Handmade</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Sports & Outdoors</a>
+                            <b>></b>
+                        </li>
+                        <li>
+                            <a href="">Automotive & Industria</a>
+                            <b>></b>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="bt3">
+                <i class="shuliang" style="display: block;">
+                    <span class="number" id="number">0</span>
+                </i>
+                <div style="position: absolute; width:283px;height: 343px;border: 1px solid #7d7c7c;background: #ffffff;z-index:3;right: 20px;border-top: none;  display: none;" class="menu_list2">
+                    <ul>
+                        <li id="cartlist" style="padding-left: 10px; padding-right: 10px; padding-top: 10px;">
+                            <div style="float: left; width: 53px; height: 78px;"><img src="small/01.jpg" width="53" height="78"></div>
+                            <div style="float: right;color: #000000;line-height: 20px;">
+                                <p>SPIKY JACK</p>
+                                <p>size</p>
+                                <p>black</p>
+                                <p>158*<span><script>document.write($.cookie("num"));</script></span></p>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <div style="width: 260px; margin: 0 auto; background: #000000; height: 40px; text-align: center;color: #fffffF; line-height: 40px; cursor: pointer; bottom: 4px;position: relative; top: 284px;" id="checkout"> CHECKOUT</div>
+                </div>
+            </li>
+            <li class="bt4">
+                <i class="my">
+                </i>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        if($.cookie("num")>0){
+            $('#number').html($.cookie("num"));
+            $('#cartlist').show();
+        }else{
+            $('#number').html('0');
+            $('#cartlist').hide();
+        }
+
+
+    });
+
+
+
+    $(".bt3").hover(function (){
+        $(this).find(".menu_list2").slideDown();
+
+    },function(){
+        $(this).find(".menu_list2").slideUp();
+
+    });
+
+
+    $(function () {
+        $('#checkout').click(function () {
+            $.ajax({
+                url:'ajaxlogin.php',
+                type:'POST', //GET
+                async:true,    //或false,是否异步
+                data:{
+                    name:1
+                },
+
+                success:function(data){
+                    if(data==1){
+                        $.cookie("num",null);
+                        alert('The end of the demo');
+                        window.location.reload();
+                        window.location.href = 'member.php';
+                    }else{
+                        alert('Please login');
+                    }
+                },
+            })
+        })
+    })
+
+    // document.write($.cookie("num"))</script><script type="text/javascript">
+
+    //alert($.cookie("num"))
+</script>
+<div class="clear">
+    <div class="main1 wrap clear">
+        <div class="fl nav_menu">
+            <ul class="menu_list_lsit">
+                <li>
+                    <a href="list.php">Prime Video</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Amazon Music</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Appstore for Android</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Echo & Alexa</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Fire Tablets</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Fire TV</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Kindle E-readers & Books</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Books & Audible</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Movies, Music & Games</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Electronics, Computers & Office</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Food & Grocery</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Beauty & Health/a>
+                        <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Toys, Kids & Baby</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Clothing, Shoes & Jewelry</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Handmade</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Sports & Outdoors</a>
+                    <b>></b>
+                </li>
+                <li>
+                    <a href="list.php">Automotive & Industria</a>
+                    <b>></b>
+                </li>
+            </ul>
+        </div>
+        <!-- banner -->
+        <div class="fr main1-r">
+            <div class="container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="show.php">
+                            <img src="images/banner.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="show.php">
+                            <img src="images/banner.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="show.php">
+                            <img src="images/banner.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="span"></div>
+            </div>
+            <!-- 轮播底部 -->
+            <div class="banner_bottom">
+                <div class="clear title">
+                    <h3>Deals recommanded for you</h3>
+                    <a href="list.php" class="fr more">more</a>
+                </div>
+                <ul class="clear list_show">
+                    <li>
+                        <div>
+                            <a href="show.php">
+                                <img src="images/pic01.jpg" alt="">
+                            </a>
+                        </div>
+
+                        <h3>one</h3>
+                        <p class="price">
+                            US$250s
+                        </p>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="show.php">
+                                <img src="images/12.jpg" alt="">
+                            </a>
+                        </div>
+
+                        <h3>two</h3>
+                        <p class="price">
+                            US$250s
+                        </p>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="show.php">
+                                <img src="images/13.jpg" alt="">
+                            </a>
+                        </div>
+                        <h3>three</h3>
+                        <p class="price">
+                            US$250s
+                        </p>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="show.php">
+                                <img src="images/14.jpg" alt="">
+                            </a>
+                        </div>
+                        <h3>four</h3>
+                        <p class="price">
+                            US$250s
+                        </p>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="show.php">
+                                <img src="images/15.jpg" alt="">
+                            </a>
+                        </div>
+                        <h3>five</h3>
+                        <p class="price">
+                            US$250s
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main2 wrap mt36">
+        <div class="clear title title_bort">
+            <h3>Clothing, Shoes & Jewelry</h3>
+            <a href="list.php" class="fr more">more</a>
+        </div>
+        <ul class="product_list clear">
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/pic02.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+olivia</p>
+                <p class="infor">fadfsafa...</p>
+                <p class="price">
+                    us$250.00
+                </p>
+                <p class="size">GOBIG18</p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/1.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+surface</p>
+                <p class="infor">fdsaffafafa</p>
+                <p class="price">
+                    us$260.00
+                </p>
+                <p class="size">GOBIG19</p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/2.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+abc</p>
+                <p class="infor">Sherily Cupcakes</p>
+                <p class="price">
+                    us$270
+                </p>
+                <p class="size">GOBIG20</p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/3.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+olivia</p>
+                <p class="infor">Elle Stace</p>
+                <p class="price">
+                    us$280
+                </p>
+                <p class="size">GOBIG21</p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/pic02.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+olivia</p>
+                <p class="infor">Elle Stace</p>
+                <p class="price">
+                    us$290
+                </p>
+                <p class="size">GOBIG22</p>
+            </li>
+        </ul>
+    </div>
+    <div class="main2 wrap mt36">
+        <div class="clear title title_bort">
+            <h3>Girls</h3>
+            <a href="list.php" class="fr more">more</a>
+        </div>
+        <ul class="product_list clear">
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/pic03.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+olivi</p>
+                <p class="infor">连衣裙</p>
+                <p class="price">
+                    us$350
+                </p>
+                <p class="size">GOBIG23</p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/4.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+olivi</p>
+                <p class="infor">abc123</p>
+                <p class="price">
+                    us$450
+                </p>
+                <p class="size">GOBIG24</p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/5.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+olivi</p>
+                <p class="infor">Helean</p>
+                <p class="price">
+                    us$450
+                </p>
+                <p class="size">GOBIG22</p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/6.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+olivi</p>
+                <p class="infor">hahohaoa</p>
+                <p class="price">
+                    us$550
+                </p>
+                <p class="size">GOBIG29</p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/7.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">alice+olivi</p>
+                <p class="infor">背背心连衣裙</p>
+                <p class="price">
+                    us$650
+                </p>
+                <p class="size">GOBIG22</p>
+            </li>
+        </ul>
+    </div>
+    <!-- 广告位 -->
+    <div class="mt36 main3 ad">
+        <a href="show.php">
+            <img src="images/ad.jpg" alt="">
+        </a>
+    </div>
+    <div class="main2 wrap mt36">
+        <div class="clear title title_bort">
+            <h3>Beauty & Health</h3>
+            <a href="list.php" class="fr more">more</a>
+        </div>
+        <ul class="product_list clear">
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/pic04.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">aglifdgf</p>
+                <p class="infor">hahohaoa</p>
+                <p class="price">
+                    us$250
+                </p>
+                <p class="size"></p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/8.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">aglifdgf</p>
+                <p class="infor">hahohaoa</p>
+                <p class="price">
+                    us$250
+                </p>
+                <p class="size"></p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/9.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">aglifdgf</p>
+                <p class="infor">hahohaoa</p>
+                <p class="price">
+                    us$250
+                </p>
+                <p class="size"></p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/10.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">aglifdgf</p>
+                <p class="infor">hahohaoa</p>
+                <p class="price">
+                    us$250
+                </p>
+                <p class="size"></p>
+            </li>
+            <li>
+                <div class="pic">
+                    <a href="show.php">
+                        <img src="images/11.jpg" alt="">
+                    </a>
+                </div>
+                <p class="produce_name">aglifdgf</p>
+                <p class="infor">hahohaoa</p>
+                <p class="price">
+                    us$250
+                </p>
+                <p class="size"></p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="footer">
+    <div class="wrapper clear">
+        <h3 class="tit">USA&Worldwide</h3>
+        <div class="fl he_title">
+            <h3>Customer Service </h3>
+            <ul>
+                <li>
+                    <a href="">Help / FAQs</a>
+                </li>
+                <li>
+                    <a href="">Order status / Reorder</a>
+                </li>
+                <li>
+                    <a href="">Rewards Program</a>
+                </li>
+                <li>
+                    <a href="">Shipping and Delivery</a>
+                </li>
+                <li>
+                    <a href="">Guarantee & Returns</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fl he_title">
+            <h3>Our Company</h3>
+            <ul>
+                <li>
+                    <a href="">About us</a>
+                </li>
+                <li>
+                    <a href="">Contact us</a>
+                </li>
+                <li>
+                    <a href="">Products</a>
+                </li>
+                <li>
+                    <a href="">Responsibility</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="fl he_title">
+            <h3>Contact us </h3>
+            <ul>
+                <li>
+                    <a href="">Instagram </a>
+                </li>
+                <li>
+                    <a href="">Facebook</a>
+                </li>
+                <li>
+                    <a href="">Twitter </a>
+                </li>
+                <li>
+                    <a href="">Pinterest</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="fl he_title">
+            <h3>We accept</h3>
+            <img src="images/pay.png" alt="">
+        </div>
+    </div>
+    <div class="wrapper pic_icon">
+        <a href="">
+            <img src="images/face.png" alt="">
+        </a>
+        <a href="">
+            <img src="images/face1.png" alt="">
+        </a>
+        <a href="">
+            <img src="images/wx.png" alt="">
+        </a>
+    </div>
+    <div class="wrapper copyright">
+        © 2018  Joshua  INC. ALL RIGHTS RESERVED
+    </div>
+</div>
+<!-- 弹窗 -->
+<div class="fixed"></div>
+<div class="tanchuang" id="register">
+    <img class="close" src="images/close.png" alt="">
+    <img class="tan_logo" src="images/logo.png" alt="">
+    <p class="zhuce">Register</p>
+    <ul class="input_box">
+        <li>
+            <label class="fl">email</label>
+            <input class="txt fl" type="text" id="email">
+        </li>
+        <li>
+            <label class="fl">password</label>
+            <input class="txt fl" type="password" id="pass">
+        </li>
+        <li>
+            <label class="fl">confirm password</label>
+            <input class="txt fl" type="password" id="curpass">
+        </li>
+        <li class="clear" style="margin-top:30px;">
+            <label class="fl">verification code </label>
+            <input class="yaz fl" type="text" id="yaz">
+            <a href="" class="fl" style="margin-top:10px;">
+                <img src='./captcha.php?r=454640136' style="width:90px; height:30px" >
+
+            </a>
+        </li>
+    </ul>
+    <input type="submit" class="zhuce_btn" value="register" id="registerbtn">
+    <p style="text-align: center; margin-top: 10px;" id="logintext"><a href="javascript:logintext();">login</a> </p>
+
+</div>
+<div class="tanchuang" id="login" style="display: none;">
+    <img class="close" src="images/close.png" alt="">
+    <img class="tan_logo" src="images/logo.png" alt="">
+    <p class="zhuce">Login</p>
+    <ul class="input_box">
+        <li>
+            <label class="fl">email</label>
+
+            <input class="txt fl" type="text" id="email2">
+        </li>
+        <li>
+            <label class="fl">password</label>
+            <input class="txt fl" type="password" id="pass2">
+        </li>
+
+
+    </ul>
+    <input type="submit" class="zhuce_btn" value="Login" id="loginbtn">
+    <p style="text-align: center; margin-top: 10px; color: #6b6b6b;" id="registertext" ><a href="javascript:registertext();" style="color: red;">now register</a> </p>
+
+</div>
+<style>
+    #logintext a{ color: #007aff;}
+    #logintext a:hover,#registertext a:hover { text-decoration: underline;}
+
+</style>
+<script>
+    function registertext(){
+
+        $(".fixed").show();
+        $("#login").hide();
+        $("#register").fadeIn();
+
+    }
+
+    function logintext(){
+        $(".fixed").show();
+        $("#register").hide();
+        $("#login").fadeIn();
+    }
+
+</script>
+<script>
+    $(function(){
+        $('#registerbtn').click(function(){
+            var regex = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
+            var email = $('#email').val();
+            if(email==''){
+                alert('email is empty');
+                return false;
+            }
+            if(regex.test(email)==false){
+                alert(' email format is wrong');
+                return false;
+            }
+            var pass = $('#pass').val();
+            if(pass==''){
+                alert('password is empty');
+                return false;
+            }
+            var curpass = $('#curpass').val();
+            if(curpass!=pass){
+                alert('Two cipher inconsistencies');
+                return false;
+            }
+
+            var yaz = $('#yaz').val();
+            if(yaz==''){
+                alert('verification code is empty');
+                return false;
+            }
+
+            $.ajax({
+                url:'register.php',
+                type:'POST', //GET
+                async:true,    //或false,是否异步
+                data:{
+                    name:email
+                },
+
+                success:function(data){
+                    if(data==1){
+                        window.location.href = 'member.php';
+                    }
+                },
+
+            })
+
+
+        });
+
+        $('#loginbtn').click(function () {
+            var email2 = $('#email2').val();
+            var pass2 = $('#pass2').val();
+            if(email2==''){
+                alert('email is empty');
+                return false;
+            }
+            var regex = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
+            if(regex.test(email2)==false){
+                alert('邮件地址不合法');
+                return false;
+            }
+
+            if(pass2==''){
+                alert('password is empty');
+                return false;
+            }
+
+            $.ajax({
+                url:'login.php',
+                type:'POST', //GET
+                async:true,    //或false,是否异步
+                data:{
+                    name:email2,pass:pass2
+                },
+
+                success:function(data){
+                    if(data==1){
+                        alert('success login');
+                        window.location.href = 'member.php';
+                    }else{
+                        alert('account or password is wrong');
+                    }
+                },
+            })
+        })
+    })
+</script></body>
+<script>
+    $(".bt2").hover(function (){
+        $(this).find(".menu_list").slideDown();
+    },function(){
+        $(this).find(".menu_list").slideUp();
+    })
+
+    var swiper = new Swiper('.container',{
+        autoplay:'2500',
+        pagination:'.span'
+    })
+
+    $(".close").click(function (){
+        $(this).parent().fadeOut();
+        $(".fixed").hide();
+    })
+
+
+</script>
+<script type="text/javascript" src="js/common.js"></script>
+</html>

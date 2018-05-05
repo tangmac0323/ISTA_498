@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会员登录</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script type="text/javascript" src="js/jquery.pack.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+</head>
+<body>
+<div class="fixed"></div>
+<div class="tanchuang2" id="register"><form action="huiyuan.html">
+    <img class="tan_logo" src="images/logo.png" alt="">
+    <p class="zhuce">Login</p>
+    <ul class="input_box">
+        <li>
+            <label>email</label>
+            <input class="txt" type="text" id="email">
+        </li>
+        <li>
+            <label>password</label>
+            <input class="txt" type="password" id="pass">
+        </li>
+        <li>
+            <label>verification code </label>
+            <input class="yaz fl" type="text" id="yaz">
+            <a href="" class="fl" style="margin-top:10px;">
+                <img src='./captcha.php?r=<?php echo rand(); ?>' style="width:90px; height:30px" >
+
+            </a>
+        </li>
+    </ul>
+    <input type="submit" class="zhuce_btn" value="register" id="registerbtn">
+    <p style="text-align: center; margin-top: 10px;" id="logintext"><a href="tan2.html">login</a> </p>
+
+</form></div>
+</body></html>
