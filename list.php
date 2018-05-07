@@ -6,8 +6,10 @@ include('header.php');
         <h3 class="list_title" STYLE="font-family: 'CAI', '微软雅黑'; ">Clothing, Shoes & Jewelry</h3>
 		<?php
 			if (isset ( $_GET ['cate'] )) {
-				alert($_GET ['cate']);
+				//alert($_GET ['cate']);
+				$curCate =  $_GET ['cate'];
 			}
+			
 			
 			function alert($msg) {
 				echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -17,8 +19,6 @@ include('header.php');
           <span class="on" STYLE="font-family: 'CAI', '微软雅黑'; ">WOMEN'S</span>
           <span STYLE="font-family: 'CAI', '微软雅黑'; ">JEWELRY</span>
           <span STYLE="font-family: 'CAI', '微软雅黑'; ">MEN'S </span>
-          <span STYLE="font-family: 'CAI', '微软雅黑'; ">ELECTRONICS</span>
-          <span STYLE="font-family: 'CAI', '微软雅黑'; ">GIFTS</span>
         </div>
         <div class="tab_box_list">
             <ul class="product_list clear">
