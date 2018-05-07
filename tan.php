@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <div class="fixed"></div>
 <div class="tanchuang" id="register" style="padding:50px 50px;">
     <img class="close" src="images/close.png" alt="">
@@ -10,7 +13,7 @@
         </li>
         <li>
             <label class="fl" style="width:122px;text-align:right;margin-right:10px;">password</label>
-            <input class="txt fl" type="password" id="pass">
+            <input class="txt fl" type="password" id="registerPW">
         </li>
         <li>
             <label class="fl" style="width:122px;text-align:right;margin-right:10px;">confirm password</label>
@@ -33,20 +36,31 @@
     <img class="close" src="images/close.png" alt="">
     <img class="tan_logo" src="images/logo.png" alt="">
     <p class="zhuce">Login</p>
-    <ul class="input_box">
-        <li>
-            <label class="fl">email</label>
+		<ul class="input_box">
+		
+			<li>
+				<label class="fl">email</label>
 
-            <input class="txt fl" type="text" id="email2">
-        </li>
-        <li>
-            <label class="fl">password</label>
-            <input class="txt fl" type="password" id="pass2">
-        </li>
+				<input class="txt fl" type="text" id="userName" name="userName">
+			</li>
+			
+			<li>
+				<label class="fl">password</label>
+				<input class="txt fl" type="password" id="loginPW" name="loginPW">
+			</li>
+			<!--  admin check -->
+			<li>
+				<input type="radio" id="loginType" name="loginType" value="customer">Login in as Customer
+				<br>
+				<input type="radio" id="loginType" name="loginType" value="admin">Login in as Administrator
+				<br>
+				<?php
+					print_r($_SESSION['islogin']);
+				?>
+			</li>
 
-
-    </ul>
-    <input type="submit" class="zhuce_btn" value="Login" id="loginbtn">
+		</ul>
+		<input type="submit" class="zhuce_btn" value="Login" id="loginbtn">
     <p style="text-align: center; margin-top: 10px; color: #6b6b6b;" id="registertext" ><a href="javascript:registertext();" style="color: red;">now register</a> </p>
 
 </div>
@@ -57,17 +71,22 @@
 </style>
 <script>
     function registertext(){
-
-        $(".fixed").show();
-        $("#login").hide();
-        $("#register").fadeIn();
+		
+		//if ($_SESSION['islogin'] != 1 && $_SESSION['islogin'] != 2 ) {
+			$(".fixed").show();
+			$("#login").hide();
+			$("#register").fadeIn();
+		//}
 
     }
 
     function logintext(){
-        $(".fixed").show();
-        $("#register").hide();
-        $("#login").fadeIn();
+		
+		//if ($_SESSION['islogin'] != 1 && $_SESSION['islogin'] != 2 ) {
+			$(".fixed").show();
+			$("#register").hide();
+			$("#login").fadeIn();
+		//}
     }
 
 </script>
@@ -84,7 +103,7 @@
                 alert(' email format is wrong');
                 return false;
             }
-            var pass = $('#pass').val();
+            var pass = $('#registerPW').val();
             if(pass==''){
                 alert('password is empty');
                 return false;
@@ -106,13 +125,17 @@
                 type:'POST', //GET
                 async:true,    //或false,是否异步
                 data:{
-                    name:email
+                    username:email,
+					password:pass,					
                 },
 
                 success:function(data){
                     if(data==1){
                         window.location.href = 'member.php';
                     }
+					else {
+						alert('hi');
+					}
                 },
 
             })
@@ -121,37 +144,59 @@
         });
         
         $('#loginbtn').click(function () {
-            var email2 = $('#email2').val();
-            var pass2 = $('#pass2').val();
-            if(email2==''){
+			// get the value from the web
+            var usern = $('#userName').val();
+            var loginpw = $('#loginPW').val();
+			var selectedVal = "";
+			
+			// check each parameter
+			
+            if(usern==''){
                 alert('email is empty');
                 return false;
             }
+			
             var regex = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
-            if(regex.test(email2)==false){
-                alert('邮件地址不合法');
+            if(regex.test(usern)==false){
+                alert('The email address is wrong');
                 return false;
             }
 
-            if(pass2==''){
+            if(loginpw==''){
                 alert('password is empty');
                 return false;
             }
+			
+			var selected = $("input[type='radio'][name='loginType']:checked");
+			if (selected.length > 0) {
+				selectedVal = selected.val();
+			}
+			else {
+				alert('Please select your login type');
+				return false;
+			}
+
 
             $.ajax({
                 url:'login.php',
-                type:'POST', //GET
-                async:true,    //或false,是否异步
+                type:'POST',	 //GET
+                async:true,    	//或false,是否异步
                 data:{
-                    name:email2,pass:pass2
+                    username:usern,
+					password:loginpw,
+					logintype:selectedVal
                 },
 
-                success:function(data){
-                    if(data==1){
-                        alert('success login');
+                success:function(data){									
+                    if(data == 1){
+                        alert('Login as Customer Now ');
                         window.location.href = 'member.php';
-                    }else{
-                        alert('account or password is wrong');
+                    }
+					else if (data == 2) {
+						alert('Login as Administrator Now ');
+                        window.location.href = 'admin.php';
+					}else{
+                        alert('Account or password is wrong');
                     }
                 },
             })

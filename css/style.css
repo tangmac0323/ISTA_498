@@ -910,7 +910,17 @@ body.ovflow{
 .produce_name{ font-weight: bold;}
 .price{ font-weight: bold;}
 .size{ font-weight: bold;}
-.cd-secondary{width: 300px; height: 630px; position: absolute; background: #ffffff; left: 225px; z-index: 999; padding-left: 20px; padding-top: 10px; display: none;}
+.cd-secondary{
+	width: 300px; 
+	height: auto;
+	position: absolute; 
+	background: #ffffff; 
+	left: 225px; 
+	z-index: 999; 
+	padding-left: 20px; 
+	padding-top: 10px; 
+	display: none;
+}
 
 
 .fanhui { display:none}

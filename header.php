@@ -18,12 +18,12 @@ session_start();
 </head>
 <body>
 <?php
-if(strpos('member.phjp',$_SERVER['PHP_SELF'])===false){
-    ?>
-<body class="header">
-    <?php
-}else{
-    ?>
+	if(strpos('member.php',$_SERVER['PHP_SELF'])===false){
+?>
+	<body class="header">
+<?php
+	}else{
+?>
     <body class="huiyua_bd">
     <div class="header">
 <?php
@@ -167,20 +167,22 @@ if(strpos('member.phjp',$_SERVER['PHP_SELF'])===false){
             $(this).find(".menu_list2").slideUp();
 
         });
+		
+		
         
         
         $(function () {
             $('#checkout').click(function () {
                 $.ajax({
                     url:'ajaxlogin.php',
-                    type:'POST', //GET
-                    async:true,    //或false,是否异步
+                    type:'POST', 	//GET
+                    async:true,     //或false,是否异步
                     data:{
                         name:1
                     },
 
                     success:function(data){
-                        if(data==1){
+                        if(data == 1){
                             $.cookie("num",null);
                             alert('The end of the demo');
                             window.location.reload();
@@ -193,4 +195,4 @@ if(strpos('member.phjp',$_SERVER['PHP_SELF'])===false){
             })
         })
 
-       // document.write($.cookie("num"))</script>
+ // document.write($.cookie("num"))</script>

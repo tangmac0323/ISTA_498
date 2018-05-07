@@ -8,18 +8,20 @@ $(".my").click(function (){
         url:'ajaxlogin.php',
         type:'POST', //GET
         async:true,    //或false,是否异步
-        data:{
-            name:'yang',age:25
-        },
-
+		
         success:function(data){
-            if(data==1){
+
+            if(data == 1){
                 window.location.href = 'member.php';
-            }else{
+            }
+			else if (data == 2) {
+				window.location.href = 'admin.php';
+			}
+			else {
                 $(".fixed").show();
                 $("#login").fadeIn();
             }
-        },
+        }
 
     })
 

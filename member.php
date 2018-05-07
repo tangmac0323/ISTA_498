@@ -1,41 +1,56 @@
 <?php
+
 include('header.php');
+//session_start();
+/*
 if(!isset($_SESSION['name'])){
     echo '<script>window.location.href="index.php"</script>';
 }
+*/
 ?>
    <div class="section" style="margin-top: 77px;">
       <div class="content clear">
           <div class="fl content_f">
               <ul>
                   <li>
-                      <a href="">My account</a>
+                      <a href="member.php?mode=default">My account</a>
                   </li>
                   <li><a href="">My order</a></li>
-                  <li><a href="">My collection</a></li>
-                  <li class="on">address</li>
-                  <li><a href="">exit</a></li>
+                  <li><a href="">My shopping cart</a></li>
+                  <li><a href="index.php">exit</a></li>
               </ul>
           </div>
           <div class="fr content_r">
               <div>
-                <input class="na mr40" type="text" placeholder="Name：">
-                <select  id="select">
+                <input class="na mr40" type="text" name="fullname" id="fullname" placeholder="Name：" value="">
+                <select  id="select" name="select">
                   <option value="Country：">Country：</option>
 				  <!-- db mark -->
                 </select>
               </div>
               <div class="mt35">
-                  <input class="Address" type="text" placeholder="Address：">
+                  <input class="Address" type="text" name="address" id="address" placeholder="Address：" value="">
               </div>
               <div class="mt35">
-                  <input class="na mr40" type="text" placeholder="Email：">
-                  <input class="na" type="text" placeholder="Tel：">
+			  
+					
+                  <input class="na mr40" type="text" name="email" id="email" value="<?php 
+						if (isset($_SESSION['name'])) {
+							echo trim($_SESSION['name']); 
+						}
+						else {
+							echo 'Email:';
+						}
+					?>">
+                  <input class="na" type="text" name="telno" id="telno" placeholder="Tel：" value="">
                 </div>
-              <input type="submit" value="Save" class="save_btn" id="save">
+              <input type="submit" value="Save" class="save_btn" id="save" name="save">
           </div>
       </div>
    </div>
+    
+   
+   
    <div class="footer">
       <div class="wrapper clear">
           <h3 class="tit">USA&Worldwide</h3>        
@@ -115,7 +130,6 @@ if(!isset($_SESSION['name'])){
           © 2018  Joshua  INC. ALL RIGHTS RESERVED
       </div>
    </div>
-   <!-- 弹窗 -->
   
 </body>
 <script>
@@ -136,9 +150,13 @@ if(!isset($_SESSION['name'])){
   })
     
     $('#save').click(function () {
-        alert('提交成功');
-        alert('体验完成');
-		<!-- db mark -->
+		// extract the value from the input form
+		var inputName = $('#fullname').val();
+		if (inputName == '') {
+			
+		}
+		
+		var address = $('#address').val();
     })
 
 

@@ -522,37 +522,59 @@
         });
         
         $('#loginbtn').click(function () {
-            var email2 = $('#email2').val();
-            var pass2 = $('#pass2').val();
-            if(email2==''){
+			// get the value from the web
+            var usern = $('#userName').val();
+            var loginpw = $('#loginPW').val();
+			var selectedVal = "";
+			
+			// check each parameter
+			
+            if(usern==''){
                 alert('email is empty');
                 return false;
             }
+			
             var regex = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
-            if(regex.test(email2)==false){
-                alert('邮件地址不合法');
+            if(regex.test(usern)==false){
+                alert('The email address is wrong');
                 return false;
             }
 
-            if(pass2==''){
+            if(loginpw==''){
                 alert('password is empty');
                 return false;
             }
+			
+			var selected = $("input[type='radio'][name='loginType']:checked");
+			if (selected.length > 0) {
+				selectedVal = selected.val();
+			}
+			else {
+				alert('Please select your login type');
+				return false;
+			}
+
 
             $.ajax({
                 url:'login.php',
-                type:'POST', //GET
-                async:true,    //或false,是否异步
+                type:'POST',	 //GET
+                async:true,    	//或false,是否异步
                 data:{
-                    name:email2,pass:pass2
+                    username:usern,
+					password:loginpw,
+					logintype:selectedVal
                 },
 
-                success:function(data){
-                    if(data==1){
-                        alert('success login');
+                success:function(data){									
+                    if(data == 1){
+                        alert('Login as Customer Now ');
                         window.location.href = 'member.php';
-                    }else{
-                        alert('account or password is wrong');
+                    }
+					else if (data == 2) {
+						alert('Login as Administrator Now ');
+                        window.location.href = 'admin.php';
+					}else{
+                        alert('Account or password is wrong');
                     }
                 },
             })

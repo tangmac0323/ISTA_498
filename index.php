@@ -10,393 +10,126 @@ include('header.php');
             <div class="fl nav_menu">
                 <ul class="menu_list_lsit" id="li_list">
                     <li class="li_list">
-                      <a href="list.php">Prime Video</a>
+                      <a href="">Prime Video</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li> 
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Amazon Music</a>
+                      <a href="">Amazon Music</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Appstore for Android</a>
+                      <a href="">Appstore for Android</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Echo & Alexa</a>
+                      <a href="">Echo & Alexa</a>
                         <ul class="cd-secondary" >
-                            <li><a href="list.php">Prime Video</a></li>
-                            <li><a href="list.php">Amazon Music</a></li>
-                            <li><a href="list.php">Appstore for Android</a></li>
-                            <li><a href="list.php">Echo & Alexa</a></li>
-                            <li><a href="list.php">Fire Tablets</a></li>
-                            <li><a href="list.php">Fire TV</a></li>
-                            <li><a href="list.php">Kindle E-readers & Books</a></li>
-                            <li><a href="list.php">Books & Audible</a></li>
-                            <li><a href="list.php">Movies, Music & Games</a></li>
-                            <li><a href="list.php">Electronics, Computers & Office</a></li>
-                            <li><a href="list.php">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="list.php">Toys, Kids & Baby</a></li>
-                            <li><a href="list.php">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="list.php">Sports & Outdoors</a></li>
-                            <li><a href="list.php">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Fire Tablets</a>
+                      <a href="">Fire Tablets</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Fire TV</a>
+                      <a href="">Fire TV</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Kindle E-readers & Books</a>
+                      <a href="">Kindle E-readers & Books</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Books & Audible</a>
+                      <a href="">Books & Audible</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Movies, Music & Games</a>
+                      <a href="">Movies, Music & Games</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Electronics, Computers & Office</a>
+                      <a href="list.php?cate=10">Electronics, Computers & Office</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">Electronics</a></li>
+							<li><a href="">PC & Laptops</a></li>
+							<li><a href="">Office Tools</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Food & Grocery</a>
+                      <a href="">Food & Grocery</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Beauty & Health/a>
+                      <a href="">Beauty & Health</a>
                           <ul class="cd-secondary" >
-                              <li><a href="">Prime Video</a></li>
-                              <li><a href="">Amazon Music</a></li>
-                              <li><a href="">Appstore for Android</a></li>
-                              <li><a href="">Echo & Alexa</a></li>
-                              <li><a href="">Fire Tablets</a></li>
-                              <li><a href="">Fire TV</a></li>
-                              <li><a href="">Kindle E-readers & Books</a></li>
-                              <li><a href="">Books & Audible</a></li>
-                              <li><a href="">Movies, Music & Games</a></li>
-                              <li><a href="">Electronics, Computers & Office</a></li>
-                              <li><a href="">Food & Grocery</a></li>
-                              <li><a href="list.php">Beauty & Health/a></li>
-                              <li><a href="">Toys, Kids & Baby</a></li>
-                              <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                              <li><a href="list.php">Handmade</a></li>
-                              <li><a href="">Sports & Outdoors</a></li>
-                              <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                           </ul>
                           <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Toys, Kids & Baby</a>
+                      <a href="">Toys, Kids & Baby</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Clothing, Shoes & Jewelry</a>
+                      <a href="list.php?cate=14">Clothing, Shoes & Jewelry</a>
                         <ul class="cd-secondary" >
                             <li><a href="">Prime Video</a></li>
                             <li><a href="">Amazon Music</a></li>
                             <li><a href="">Appstore for Android</a></li>
                             <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Handmade</a>
+                      <a href="">Handmade</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Sports & Outdoors</a>
+                      <a href="">Sports & Outdoors</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php">Automotive & Industria</a>
+                      <a href="">Automotive & Industria</a>
                         <ul class="cd-secondary" >
-                            <li><a href="">Prime Video</a></li>
-                            <li><a href="">Amazon Music</a></li>
-                            <li><a href="">Appstore for Android</a></li>
-                            <li><a href="">Echo & Alexa</a></li>
-                            <li><a href="">Fire Tablets</a></li>
-                            <li><a href="">Fire TV</a></li>
-                            <li><a href="">Kindle E-readers & Books</a></li>
-                            <li><a href="">Books & Audible</a></li>
-                            <li><a href="">Movies, Music & Games</a></li>
-                            <li><a href="">Electronics, Computers & Office</a></li>
-                            <li><a href="">Food & Grocery</a></li>
-                            <li><a href="list.php">Beauty & Health/a></li>
-                            <li><a href="">Toys, Kids & Baby</a></li>
-                            <li><a href="">Clothing, Shoes & Jewelry</a></li>
-                            <li><a href="list.php">Handmade</a></li>
-                            <li><a href="">Sports & Outdoors</a></li>
-                            <li><a href="">Automotive & Industria</a></li>
+                            <li><a href="">THERE IS NOTHING HERE</a></li>
                         </ul>
                       <b>></b>
                     </li>
@@ -675,7 +408,7 @@ include('header.php');
         <!-- 广告位 -->
         <div class="mt36 main3 ad">
             <a href="show.php">
-              <img src="images/ad.jpg" alt="">
+              <img src="images/pic03.jpg" alt="">
             </a>
         </div>
         <div class="main2 wrap mt36">

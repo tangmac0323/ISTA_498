@@ -4,6 +4,15 @@ include('header.php');
    <div class="product_list_list" style="margin-top: 77px;">
      <div class="wrap" style="width: 1170px;">
         <h3 class="list_title" STYLE="font-family: 'CAI', '微软雅黑'; ">Clothing, Shoes & Jewelry</h3>
+		<?php
+			if (isset ( $_GET ['cate'] )) {
+				alert($_GET ['cate']);
+			}
+			
+			function alert($msg) {
+				echo "<script type='text/javascript'>alert('$msg');</script>";
+			}
+		?>
         <div class="tab_box">
           <span class="on" STYLE="font-family: 'CAI', '微软雅黑'; ">WOMEN'S</span>
           <span STYLE="font-family: 'CAI', '微软雅黑'; ">JEWELRY</span>
