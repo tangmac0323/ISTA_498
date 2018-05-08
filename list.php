@@ -1,6 +1,7 @@
 <?php
 include('header.php');
 ?>
+
    <div class="product_list_list" style="margin-top: 77px;">
      <div class="wrap" style="width: 1170px;">
         <h3 class="list_title" STYLE="font-family: 'CAI', '微软雅黑'; ">Clothing, Shoes & Jewelry</h3>
@@ -11,27 +12,45 @@ include('header.php');
 			}
 			
 			
+			// for demo usage, cate = 14
+			if ($curCate == 14) {
+			?>
+				<div class="tab_box">
+					<span class="on" STYLE="font-family: 'CAI', '微软雅黑'; ">WOMEN'S</span>
+					<span STYLE="font-family: 'CAI', '微软雅黑'; ">JEWELRY</span>
+					<span STYLE="font-family: 'CAI', '微软雅黑'; ">MEN'S </span>
+				</div>
+		<?php	
+			}
+		?>
+		
+		<!-- connect ot db -->
+		<?php
+			$itemTagArray_women = $theDBA->getItemTagAsArrayByCategory('WOMEN');
+			$itemTagArray_men = $theDBA->getItemTagAsArrayByCategory('MEN');
+			$itemTagArray_jewelry = $theDBA->getItemTagAsArrayByCategory('JEWELRY');
+		?>
+		
+			
+		<?php
 			function alert($msg) {
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 			}
 		?>
-        <div class="tab_box">
-          <span class="on" STYLE="font-family: 'CAI', '微软雅黑'; ">WOMEN'S</span>
-          <span STYLE="font-family: 'CAI', '微软雅黑'; ">JEWELRY</span>
-          <span STYLE="font-family: 'CAI', '微软雅黑'; ">MEN'S </span>
-        </div>
+
         <div class="tab_box_list">
+		
             <ul class="product_list clear">
                 <li>
                     <div class="pic">
-                        <a href="show.php">
-                          <img src="https://static.oysho.cn/6/photos2/2018/V/3/1/p/0055/351/699/0055351699_1_1_4.jpg?t=1519233229425" alt="">
+                        <a href="show.php?itemTag=<?php echo $itemTagArray_women[0]['itemTagName'] ?>&cate=Women">
+							<img src="https://static.oysho.cn/6/photos2/2018/V/3/1/p/0055/351/699/0055351699_1_1_4.jpg?t=1519233229425" alt="">
                         </a>
                     </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
+                    <p class="produce_name"><?php echo $itemTagArray_women[0]['itemTagName'] ?></p>
+                    <p class="infor"><?php echo $itemTagArray_women[0]['itemDescription'] ?></p>
                     <p class="price">
-                      us$250
+                      US $<?php echo $itemTagArray_women[0]['itemPrice'] ?>
                     </p>
                     <p class="size"></p>
                 </li>
@@ -44,7 +63,7 @@ include('header.php');
                     <p class="produce_name">aglifdgf</p>
                     <p class="infor">haohaoa</p>
                     <p class="price">
-                      us$250
+                      US $250
                     </p>
                     <p class="size"></p>
                 </li>
@@ -57,7 +76,7 @@ include('header.php');
                     <p class="produce_name">aglifdgf</p>
                     <p class="infor">haohaoa</p>
                     <p class="price">
-                      us$250
+                      US $250
                     </p>
                     <p class="size"></p>
                 </li>
@@ -70,7 +89,7 @@ include('header.php');
                     <p class="produce_name">aglifdgf</p>
                     <p class="infor">haohaoa</p>
                     <p class="price">
-                      us$250
+                      US $250
                     </p>
                     <p class="size"></p>
                 </li>
@@ -83,7 +102,7 @@ include('header.php');
                     <p class="produce_name">aglifdgf</p>
                     <p class="infor">haohaoa</p>
                     <p class="price">
-                      us$250
+                      US $250
                     </p>
                     <p class="size"></p>
                 </li>
@@ -96,7 +115,7 @@ include('header.php');
                     <p class="produce_name">aglifdgf</p>
                     <p class="infor">haohaoa</p>
                     <p class="price">
-                      us$250
+                      US $250
                     </p>
                     <p class="size"></p>
                 </li>
@@ -467,15 +486,15 @@ include('tan.php');
   })
 
 $(".tab_box span").click(function (){
-  $(this).addClass('on').siblings().removeClass();
-  var index=$(this).index();
-   $(".product_list").eq(index).show().siblings().hide();
+	$(this).addClass('on').siblings().removeClass();
+	var index = $(this).index();
+	$(".product_list").eq(index).show().siblings().hide();
 })
 
-  $(".close").click(function (){
+$(".close").click(function (){
     $(this).parent().fadeOut();
     $(".fixed").hide();
-  })
+})
 
 
 </script>

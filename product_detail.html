@@ -77,7 +77,9 @@
             </ul>
         </div>
     </div>
+	<!--
         <div class="head_hy"><a href="tan1.html">Registration</a>|<a href="tan2.html">Login</a>|<a href="huiyuan.html">Member Center</a></div>
+	-->
 </div>
     <script type="text/javascript">
         $(function () {
@@ -473,6 +475,7 @@
 
 </script>
 <script>
+/*
     $(function(){
         $('#registerbtn').click(function(){
             var regex = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
@@ -580,7 +583,9 @@
             })
         })
     })
-</script></body>
+	*/
+</script>
+</body>
 <script>
   $(".bt2").hover(function (){
     $(this).find(".menu_list").slideDown();
@@ -896,6 +901,8 @@ $(".jian").click(function (){
   }
   $("#select_num").val(total)
 })
+
+
 $(".adding").click(function (){
     var num=parseInt($("#select_num").val())+parseInt($(".number").html());
     $.cookie("num", num, { expires: 7 }); // 存储一个带7天期限的 cookie   

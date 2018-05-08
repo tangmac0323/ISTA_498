@@ -1,5 +1,17 @@
 <?php
 include('header.php');
+
+
+// for demo usage 
+if (isset ( $_GET ['cate'] )) {
+				//alert($_GET ['cate']);
+	$curCate =  $_GET ['cate'];
+}
+
+if (isset ( $_GET ['itemTag'] )) {
+				//alert($_GET ['cate']);
+	$curTag =  $_GET ['itemTag'];
+}
 ?>
 <style>
     #u1 li{overflow: hidden;}
@@ -11,11 +23,9 @@ include('header.php');
      <div class="mianbao_nav">
         <a href="index.php">Home </a>
         <a href="">/</a>
-        <a href="">Womenswear</a>
-        <a href="">/</a>
-        <a href="">GAIA</a>     
-        <a href="">/</a>   
-        <a href="">Soft Wool Feli Dress</a>
+        <a href="list.php?cate=<?php echo $curCate ?>"><?php echo $curCate?></a>
+        <a href="">/</a> 
+        <a href=""><?php echo $curTag?></a>
      </div>
      <div class="clear">
        <div class="img_l fl">
@@ -26,20 +36,12 @@ include('header.php');
                   <div id="imageMenu">
                     <ul>
               
-                      <li id="onlickImg"><img src="small/01.jpg" width="68" height="68" alt="洋妞"/></li>
+                      <li id="onlickImg"><img src="Image/Women/01.jpg" width="68" height="68" alt="img_small_01"/></li>
               
-                      <li><img src="small/02.jpg" width="68" height="68" alt="洋妞"/></li>
+                      <li><img src="Image/Women/02.jpg" width="68" height="68" alt="img_small_02"/></li>
               
-                      <li><img src="small/03.jpg" width="68" height="68" alt="洋妞"/></li>
-              
-                      <li><img src="small/04.jpg" width="68" height="68" alt="洋妞"/></li>
-              
-                      <li><img src="small/01.jpg" width="68" height="68" alt="洋妞"/></li>
-              
-                      <li><img src="small/06.jpg" width="68" height="68" alt="洋妞"/></li>
-              
-                      <li><img src="small/04.jpg" width="68" height="68" alt="洋妞"/></li>
-              
+                      <li><img src="Image/Women/03.jpg" width="68" height="68" alt="img_small_03"/></li>
+					  
                     </ul>
               
                   </div>
@@ -48,7 +50,7 @@ include('header.php');
 
               <div id="vertical" class="bigImg">
             
-                <img src="mid/01.jpg" width="445" height="666" alt="" id="midimg" />
+                <img src="Image/Women/01.jpg" width="445" height="666" alt="img_medium" id="midimg" />
             
                 <div style="display:none;" id="winSelector"></div>
             
@@ -90,7 +92,11 @@ include('header.php');
           <div>
             <p class="mingc">Size</p>
             <div class="size_detail">
-                <span class="on">32A</span>
+				<script>
+					// global var
+					size = '32A';
+				</script>
+                <span class="on" >32A</span>
                 <span>32B</span>
                 <span>32C</span>
                 <span>32D</span>
@@ -107,14 +113,14 @@ include('header.php');
                     <input type="text" class="fl" id="select_num" value="1">
                     <span class="fl bbt zj">+</span>
                 </div>
-                <button class="adding fl">ADDING TO BASKE</button>
+                <button class="adding fl">ADDING TO BASKET</button>
             </div>
             
           </div>
        </div>
      </div>
-     <div class="PRODUCTS_DETAI">
-        <h3>PRODUCTS_DETAI</h3>
+     <div class="PRODUCTS_DETAIL">
+        <h3>PRODUCTS_DETAIL</h3>
         <ul class="ll">
           <li>
               a ck black push up bra with allover lace detail, adjustable straps with v-neckline
@@ -142,7 +148,7 @@ include('header.php');
         </ul>
      </div>
      <div class="PRODUCTS_DETAI ">
-        <h3>PRODUCTS_DETAI</h3>
+        <h3>PRODUCTS_DETAIL</h3>
         <ul class="u1" id="u1">
          <li>
            <a href="" style="">
@@ -278,6 +284,7 @@ include('tan.php');
 ?>
 </body>
 <script>
+
   $(".bt2").hover(function (){
     $(this).find(".menu_list").slideDown();
   },function(){
@@ -571,18 +578,21 @@ $.fn.decorateIframe = function(options) {
 
 
 
-  $(".color span").click(function (){
+$(".color span").click(function (){
     $(this).addClass('on').siblings().removeClass();
-  })
+})
 
-  $(".size_detail span").click(function (){
+$(".size_detail span").click(function (){
     $(this).addClass('on').siblings().removeClass();
-  })
+	size = $(this).text();
+})
 
+  
 $(".zj").click(function (){
   var total= parseInt($("#select_num").val())+1;
   $("#select_num").val(total)
 })
+
 
 $(".jian").click(function (){
   var total= parseInt($("#select_num").val())-1;
@@ -592,10 +602,13 @@ $(".jian").click(function (){
   }
   $("#select_num").val(total)
 })
+
+
 $(".adding").click(function (){
-    var num=parseInt($("#select_num").val())+parseInt($(".number").html());
-    $.cookie("num", num, { expires: 7 }); // 存储一个带7天期限的 cookie   
-    $(".number").html($.cookie("num"));
+    var quantity = parseInt($("#select_num").val())+parseInt($(".number").html()); 
+	
+	console.log(size);
+	
     $('#menu_list2').show();
     $('#cartlist').show();
 })

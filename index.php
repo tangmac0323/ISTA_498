@@ -1,7 +1,9 @@
 <?php
 include('header.php');
 ?>
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
+
 
     //alert($.cookie("num"))
 </script>
@@ -73,12 +75,14 @@ include('header.php');
                       <b>></b>
                     </li>
                     <li>
-                      <a href="list.php?cate=10">Electronics, Computers & Office</a>
+                      <a href="">Electronics, Computers & Office</a>
+<!--
                         <ul class="cd-secondary" >
                             <li><a href="">Electronics</a></li>
 							<li><a href="">PC & Laptops</a></li>
 							<li><a href="">Office Tools</a></li>
                         </ul>
+-->
                       <b>></b>
                     </li>
                     <li>
@@ -104,12 +108,14 @@ include('header.php');
                     </li>
                     <li>
                       <a href="list.php?cate=14">Clothing, Shoes & Jewelry</a>
+					 <!-- 
                         <ul class="cd-secondary" >
                             <li><a href="">Prime Video</a></li>
                             <li><a href="">Amazon Music</a></li>
                             <li><a href="">Appstore for Android</a></li>
                             <li><a href="">Echo & Alexa</a></li>
                         </ul>
+						-->
                       <b>></b>
                     </li>
                     <li>
@@ -610,7 +616,7 @@ $(function () {
 })
 </script>
 
-<script type="text/javascript" src="js/common.js"></script>
+
 
 
 </html>

@@ -1,5 +1,10 @@
 <?php
 session_start();
+require_once('./DatabaseAdaptor.php');
+
+if(!isset($_SESSION['islogin'])){
+	$_SESSION['islogin'] = 0;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

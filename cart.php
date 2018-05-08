@@ -32,7 +32,7 @@ if(isset($_SESSION['name'])){
 						<a href="cart.php">My shopping cart</a>
 					</li>
 					<li>
-						<a href="logout.php?mode=true">Logout</a>
+						<a href="index.php">exit</a>
 					</li>
 				</ul>
           </div>
@@ -227,7 +227,7 @@ if(isset($_SESSION['name'])){
 	$(".close").click(function (){
 		  $(this).parent().fadeOut();
 		  $(".fixed").hide();
-		})
+		  })
     
 	
 </script>

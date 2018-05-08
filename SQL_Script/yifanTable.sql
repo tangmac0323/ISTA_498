@@ -6,11 +6,11 @@ CREATE TABLE Customer (
 	userName 	VARCHAR(50) 		NOT NULL,
 	userID		INT AUTO_INCREMENT 	NOT NULL,
 	hashpw		VARCHAR(80) 		NOT NULL,
-	fullName 	VARCHAR(40) DEFAULT 'NA',
-	email		VARCHAR(30) DEFAULT 'NA',
-	address		VARCHAR(50) DEFAULT 'NA',
-	telNo		INT(10) 	DEFAULT 0,	
-	country		VARCHAR(20)	DEFAULT 'NA',
+	fullName 	VARCHAR(40) DEFAULT 'N/A',
+	email		VARCHAR(30) DEFAULT 'N/A',
+	address		VARCHAR(50) DEFAULT 'N/A',
+	telNo		VARCHAR(10) DEFAULT 'N/A',	
+	stateName	VARCHAR(20)	DEFAULT 'N/A',
 	PRIMARY KEY (userID, userName, hashpw)
 );
 
@@ -22,10 +22,9 @@ CREATE TABLE Admininster (
 
 CREATE TABLE CustOrder (
 	orderID		INT AUTO_INCREMENT NOT NULL,
-	userID		INT,
+	userName	VARCHAR(50) NOT NULL,
 	orderDate	DATE,	
-	PRIMARY KEY (orderID),
-	FOREIGN KEY (userID) REFERENCES Customer(userID)
+	PRIMARY KEY (orderID)
 );
 
 CREATE TABLE ItemSold (
@@ -36,20 +35,29 @@ CREATE TABLE ItemSold (
 );
 
 CREATE TABLE ItemTagDescription (
-	itemTag			VARCHAR(20) NOT NULL,
-	itemDescription	VARCHAR(200) DEFAULT 'NA',	
-	PRIMARY KEY (itemTag)
+	itemTagName		VARCHAR(40) NOT NULL,
+	itemDescription	VARCHAR(200) DEFAULT 'N/A',	
+	category		VARCHAR(40) NOT NULL,
+	itemPrice		FLOAT(10,2),		
+	posterPath		VARCHAR(100) NOT NULL,
+	PRIMARY KEY (itemTagName)
 );
 
 CREATE TABLE ItemInfo (
-	itemID		INT AUTO_INCREMENT NOT NULL,
-	category	VARCHAR(20),	
-	itemColor	VARCHAR(20) DEFAULT 'NA',
-	itemSize	VARCHAR(10) DEFAULT 'NA',
-	itemPrice	FLOAT(10,4),	
-	itemTag		VARCHAR(20),	
+	itemID		INT AUTO_INCREMENT NOT NULL,	
+	itemColor	VARCHAR(20) DEFAULT 'N/A',
+	itemSize	VARCHAR(10) DEFAULT 'N/A',
+	itemTagName	VARCHAR(40),	
 	PRIMARY KEY (itemID),
-	FOREIGN KEY (itemTag) REFERENCES ItemTagDescription(itemTag)
+	FOREIGN KEY (itemTagName) REFERENCES ItemTagDescription(itemTagName)
+);
+
+
+CREATE TABLE ShoppingCart (
+	userName	VARCHAR(50) NOT NULL,
+	itemID		INT NOT NULL,
+	quantity	INT,
+	PRIMARY KEY(userName)
 );
 
 

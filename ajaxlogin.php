@@ -4,7 +4,6 @@
 
 session_start();
 
-if($_POST){
 	
 	//alert($_SESSION['islogin']);
 	
@@ -12,25 +11,32 @@ if($_POST){
 		// go to customer page
 		if ($_SESSION['islogin'] == 1) {
 			echo 1;
-			exit;
+			exit(1);
 		}
 
 		// go to admin page
 		if ($_SESSION['islogin'] == 2) {
 			echo 2;
-			exit;
+			exit(1);
 		}
 		
 		if ($_SESSION['islogin'] == 0) {
 			echo 0;
-			exit;
+			exit(1);
 		}
+		
+		echo 'failed';
+		exit;
+		
+		
 
     }else{
         echo 0;
-        exit;
+		exit(1);
     }
-}
+
+
+//echo "WWW";
 
 
 ?>

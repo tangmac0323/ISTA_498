@@ -10,11 +10,12 @@ $(".my").click(function (){
         async:true,    //或false,是否异步
 		
         success:function(data){
-
-            if(data == 1){
+			data = data.trim();
+			console.log(data);
+            if(data == "1"){
                 window.location.href = 'member.php';
             }
-			else if (data == 2) {
+			else if (data == "2") {
 				window.location.href = 'admin.php';
 			}
 			else {
@@ -33,3 +34,4 @@ $('.product_list li').hover(function(){
 },function () {
     $(this).find('img').animate({width:'-=50px',height:'-=50px'})
 })
+

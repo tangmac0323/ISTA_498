@@ -9,15 +9,15 @@ session_start();
     <ul class="input_box">
         <li>
             <label class="fl" style="width:122px;text-align:right;margin-right:10px;">email</label>
-            <input class="txt fl" type="text" id="email">
+            <input class="txt fl" type="text" id="email" name="email">
         </li>
         <li>
             <label class="fl" style="width:122px;text-align:right;margin-right:10px;">password</label>
-            <input class="txt fl" type="password" id="registerPW">
+            <input class="txt fl" type="password" id="registerPW" name="registerPW">
         </li>
         <li>
             <label class="fl" style="width:122px;text-align:right;margin-right:10px;">confirm password</label>
-            <input class="txt fl" type="password" id="curpass">
+            <input class="txt fl" type="password" id="curpass" name="curpass">
         </li>
         <li class="clear" style="margin-top:30px;">
             <label class="fl" style="width:122px;text-align:right;margin-right:10px;">verification code </label>
@@ -30,7 +30,6 @@ session_start();
     </ul>
     <input type="submit" class="zhuce_btn" value="register" id="registerbtn">
     <p style="text-align: center; margin-top: 10px;" id="logintext"><a href="javascript:logintext();">login</a> </p>
-
 </div>
 <div class="tanchuang" id="login" style="display: none; ">
     <img class="close" src="images/close.png" alt="">
@@ -55,7 +54,7 @@ session_start();
 				<input type="radio" id="loginType" name="loginType" value="admin">Login in as Administrator
 				<br>
 				<?php
-					print_r($_SESSION['islogin']);
+					//print_r($_SESSION['islogin']);
 				?>
 			</li>
 
@@ -117,7 +116,7 @@ session_start();
             var yaz = $('#yaz').val();
             if(yaz==''){
                 alert('verification code is empty');
-                return false;
+                //return false;
             }
 
             $.ajax({
@@ -130,11 +129,14 @@ session_start();
                 },
 
                 success:function(data){
-                    if(data==1){
+					
+					//alert(data);
+					
+                    if(data == 1){						
                         window.location.href = 'member.php';
                     }
 					else {
-						alert('hi');
+						alert('User already exists');
 					}
                 },
 
