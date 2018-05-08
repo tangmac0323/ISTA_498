@@ -43,11 +43,11 @@ if (isset ( $_GET ['itemTag'] )) {
                   <div id="imageMenu">
                     <ul>
               
-                      <li id="onlickImg"><img src="images/cate14/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_01.jpg" width="68" height="68" alt="img_small_01"/></li>
+                      <li id="onlickImg"><img src="images/Storage/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_01.jpg" width="68" height="68" alt="img_small_01"/></li>
               
-                      <li><img src="images/cate14/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_02.jpg" width="68" height="68" alt="img_small_02"/></li>
+                      <li><img src="images/Storage/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_02.jpg" width="68" height="68" alt="img_small_02"/></li>
               
-                      <li><img src="images/cate14/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_03.jpg" width="68" height="68" alt="img_small_03"/></li>
+                      <li><img src="images/Storage/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_03.jpg" width="68" height="68" alt="img_small_03"/></li>
 					  
                     </ul>
               
@@ -57,7 +57,7 @@ if (isset ( $_GET ['itemTag'] )) {
 
               <div id="vertical" class="bigImg">
             
-                <img src="images/cate14/Women/<?php echo $curTag; ?>/<?php echo $curTag; ?>_small_01.jpg" width="445" height="666" alt="img_medium" id="midimg" />
+                <img src="images/Storage/Women/<?php echo $curTag; ?>/<?php echo $curTag; ?>_small_01.jpg" width="445" height="666" alt="img_medium" id="midimg" />
             
                 <div style="display:none;" id="winSelector"></div>
             

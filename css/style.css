@@ -16,6 +16,7 @@
 body{ margin:0px; padding:0px; font-size:14px;font-family:"entypo-fontello";color:#34495f;line-height:1; }
 ul,li,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,ol,form,input{ margin:0px; padding:0px;}
 input,textarea,select { font-family: "entypo-fontello"; outline: none; border: none; background: none; }
+selectColor { font-family: "entypo-fontello"; outline: none; border: none; background: none; }
 input[type="submit"] { cursor: pointer; }
 ul,li{ list-style:none}
 img{border:0px; padding:0px; display: block; }
@@ -530,9 +531,23 @@ body.ovflow{
     color: #5c5c5c;
 }
 
+.content_r input,#selectColor{
+    font-size: 16px;
+    padding-left: 15px;
+    height: 50px;
+    border: 1px solid #9b9b9b;
+    color: #5c5c5c;
+}
+
+#selectColor,.na{
+    width: 275px;
+}
+
 #select,.na{
     width: 275px;
 }
+
+
 
 .Address{
     width:587px;
@@ -972,8 +987,10 @@ body.ovflow{
 .content_r { float:none; width:100%; height:auto; padding:0; margin-top:30px; padding-top:15px}
 
 .content_r input, #select { width:90%; margin:0 auto; display:block; margin-bottom:15px}
+.content_r input, #selectColor { width:90%; margin:0 auto; display:block; margin-bottom:15px}
 .mt35 { margin-top:0}
 .content_r .save_btn { width:100%}
+
 
 .list_title { margin-top:50px; font-size:18px}
 .tab_box { margin-top:30px; font-size:16px}

@@ -8,42 +8,62 @@ if(isset($_SESSION['name'])){
 }
 
 ?>
-   <div class="section" style="margin-top: 77px;">
-      <div class="content clear">
-          <div class="fl content_f">
-				<ul>
-					<li>
-						<a href="adminAddItem.php">Add Item</a>
-					</li>
-					<li>
-						<a href="adminUpdateItem.php">Update Item</a>
-					</li>
-					<li>
-						<a href="logout.php?mode=true">Logout</a>
-					</li>
-				</ul>
-          </div>
-          <div class="fr content_r">
-              <div>
-                <input class="na mr40" type="text" name="itemTagName" id="itemTagName" placeholder="ItemTagName:" value="">
-                <select  id="select" name="select">
-					<option value="">ItemCategory：</option>
-					<option value="Women" >Women</option>
-					<option value="Women" >Men</option>
-					<option value="Women" >Jewelry</option>
-                </select>
-              </div>
-              <div class="mt35">
-                  <input class="Address" type="text" name="itemDescription" id="itemDescription" placeholder="ItemDescription：" value="">
-              </div>
-              <div class="mt35">					
-                  <input class="na mr40" type="text" name="itemSize" id="itemSize" placeholder="ItemSize：" value="">
-                  <input class="na" type="text" name="telno" id="telno" placeholder="Tel：" value="">
-                </div>
-              <input type="submit" value="Submit" class="save_btn" id="submitbtn" name="submitbtn">
-          </div>
-      </div>
-   </div>
+	<div class="section" style="margin-top: 77px;">
+		<div class="content clear">
+			<div class="fl content_f">
+					<ul>
+						<li>
+							<a href="adminAddItem.php">Add/Update Item</a>
+						</li>
+						<li>
+							<a href="adminAddImage.php">Add/Update Images</a>
+						</li>
+						<li>
+							<a href="logout.php?mode=true">Logout</a>
+						</li>
+					</ul>
+			</div>
+			<div class="fr content_r">
+				<!--
+				<form method='POST' action='uploadFile.php' enctype='multipart/form-data'>
+				-->
+					<div>
+						<input class="na mr40" type="text" name="itemTagName" id="itemTagName" placeholder="ItemTagName:" value="">
+						<select  id="select" name="select">
+							<option value="">ItemCategory：</option>
+							<option value="Women" >Women</option>
+							<option value="Men" >Men</option>
+							<option value="Jewelry" >Jewelry</option>
+						</select>
+					</div>
+					<div class="mt35">
+						<input class="na mr40" type="text" name="itemDescription" id="itemDescription" placeholder="ItemDescription：" value="">
+						<select id="selectColor" name="selectColor">
+							<option value="">ItemColor：</option>
+							<option value="WHITE" >WHITE</option>
+							<option value="BLACK" >BLACK</option>
+							<option value="BROWN" >BROWN</option>
+						</select>
+					</div>
+					<div class="mt35">					
+						<input class="na mr40" type="text" name="itemSize" id="itemSize" placeholder="ItemSize：" value="">
+						<input class="na" type="text" name="itemPrice：" id="itemPrice" placeholder="ItemPrice：" value="">
+					</div>
+					<!--  upload bar 
+					<div class="input-group mb-3">
+							<div class="custom-file">
+								<input type="file" multiple="" class="custom-file-input" name="inputGroupFile01[]" id="inputGroupFile01">
+								<label class="custom-file-label" for="inputGroupFile01">File should be jpg, named in form "preview.jpg/itemTagName_small/mid/big_01/02/03.jpg"</label>
+							</div>
+					</div>	
+					-->
+					<input type="submit" value="Submit" class="save_btn" id="submitbtn" name="submitbtn">
+				<!--
+				</form>
+				-->
+			</div>
+		</div>
+	</div>
     
    
    
@@ -154,61 +174,78 @@ $(function(){
 			
 			//console.log('save');
 			// extract the value from the input form
-			var inputName = $('#fullname').val();
-			if (inputName == "") {
-				inputName = 'N/A';
+			var itemTagName = $('#itemTagName').val();
+			if (itemTagName == "") {
+				itemTagName = 'N/A';
 			}
 			
-			var address = $('#address').val();
-			if (address == "") {
-				address = 'N/A';
+			var itemDescription = $('#itemDescription').val();
+			if (itemDescription == "") {
+				itemDescription = 'N/A';
 			}
 			
-			var emailAddr = $('#email').val();
-			if (emailAddr == "") {
-				emailAddr = 'N/A';
+			var itemPrice = $('#itemPrice').val();
+			if (itemPrice == "") {
+				itemPrice = 0;
 			}		
 			
-			var telNo = $('#telno').val();
-			if (telNo == "") {
-				telNo = 'N/A';
+			var itemSize = $('#itemSize').val();
+			if (itemSize == "") {
+				itemSize = 'N/A';
 			}
 			
-			var state = $('#select').val();
-			if (state == "") {
-				state = 'N/A';
+			var itemCategory = $('#select').val();
+			if (itemCategory == "") {
+				itemCategory = 'N/A';
+			}
+			
+			var itemColor = $('#selectColor').val();
+			if (itemColor == "") {
+				itemColor = 'N/A';
 			}
 			
 				
 			$.ajax({
-					url:'updateUserInfo.php',
+					url:'uploadFile.php',
 					type:'POST', //GET
 					async:true,    //或false,是否异步
 					data:{
-						username:session_loginname,
-						fullname:inputName,
-						address:address,
-						email:emailAddr,
-						telNo:telNo,
-						stateName:state,
+						itemTagName:itemTagName,
+						itemDescription:itemDescription,
+						itemPrice:itemPrice,
+						itemSize:itemSize,
+						itemCategory:itemCategory,
+						itemColor:itemColor
 					},
 
 					success:function(data){
 						
-						alert(data);
+						console.log(itemTagName);
+						console.log(itemDescription);
+						console.log(itemPrice);
+						console.log(itemSize);
+						console.log(itemCategory);
+						console.log(itemColor);
 						
+						
+						alert(data);
+						//window.location.href = 'adminAddItem.php';
+						/*
 						if(data == 1){		
-							alert('Update done');					
-							window.location.href = 'member.php';
+							alert('Upload done');					
+							window.location.href = 'adminAddItem.php';
 						}
 						else {
-							alert('Update failed');
+							alert('Upload failed');
+							window.location.href = 'adminAddItem.php';
 						}
+						*/
 					},
 
 			})
 
 	})		
 })
+
    
 </script>

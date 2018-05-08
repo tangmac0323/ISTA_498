@@ -282,7 +282,7 @@ $(function(){
 
 					success:function(data){
 						
-						alert(data);
+						//alert(data);
 						
 						if(data == 1){		
 							alert('Update done');					

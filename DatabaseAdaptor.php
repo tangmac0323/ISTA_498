@@ -366,11 +366,76 @@
 			return $stmt->fetch( PDO::FETCH_ASSOC );	
 		}
 		
-		
-		public function getCartNumber(){
-			return;
+		public function checkItemTag($itemTagName) {
+			// Check if the item tag already exist
+			$stmt = $this->DB->prepare ( "SELECT * FROM ItemTagDescription WHERE itemTagName=:itemTagName" );
+			$stmt->bindParam('itemTagName', $itemTagName);
+			
+			$stmt->execute();
+			
+			$check = $stmt->fetchAll ( PDO::FETCH_ASSOC );
+            if ($check){
+                return true;
+            }
+            return false;			
 		}
+		
+		public function addNewItemTag($itemTagName, $itemDescription, $category, $itemPrice, $itemSize, $itemColor) {
+			$stmt = $this->DB->prepare ( "INSERT INTO ItemTagDescription (itemTagName, itemDescription, category, itemPrice)
+											VALUES(:itemTagName, :itemDescription, :category, :itemPrice)" );
+			$stmt->bindParam('itemTagName', $itemTagName);
+			$stmt->bindParam('itemDescription', $itemDescription);
+			$stmt->bindParam('itemPrice', $itemPrice);							
+			$stmt->bindParam('category', $category);
+			$stmt->execute();
+			
+			// add item info
+			
+			$stmt = $this->DB->prepare ( "INSERT INTO ItemInfo (itemColor, itemSize, itemTagName)
+											VALUES(:itemColor, :itemSize, :itemTagName)" );
+			$stmt->bindParam('itemTagName', $itemTagName);
+			$stmt->bindParam('itemSize', $itemSize);							
+			$stmt->bindParam('itemColor', $itemColor);			
+			$stmt->execute();			
+		}
+		
+		public function updateItemTagDescription($itemTagName, $itemDescription, $category, $itemPrice) {
+			$stmt = $this->DB->prepare ( "UPDATE ItemTagDescription 
+											SET itemDescription=:itemDescription, category=:category, itemPrice=:itemPrice
+											WHERE itemTagName=:itemTagName" );
+			$stmt->bindParam('itemTagName', $itemTagName);
+			$stmt->bindParam('itemDescription', $itemDescription);
+			$stmt->bindParam('itemPrice', $itemPrice);							
+			$stmt->bindParam('category', $category);
+			
+			$stmt->execute();
+		}
+		
+		public function checkItemByItemTag($itemTagName, $itemColor, $itemSize) {
+			$stmt = $this->DB->prepare ( "SELECT * FROM ItemInfo
+											WHERE itemTagName=:itemTagName
+											AND itemColor=:itemColor
+											AND itemSize=:itemSize" );
+			$stmt->bindParam('itemTagName', $itemTagName);
+			$stmt->bindParam('itemSize', $itemSize);							
+			$stmt->bindParam('itemColor', $itemColor);			
+			$stmt->execute();	
 
+			$check = $stmt->fetchAll ( PDO::FETCH_ASSOC );
+            if ($check){
+                return true;
+            }
+            return false;	
+		}
+		
+		public function addNewSubItem($itemTagName, $itemSize, $itemColor) {
+			$stmt = $this->DB->prepare ( "INSERT INTO ItemInfo (itemColor, itemSize, itemTagName)
+											VALUES(:itemColor, :itemSize, :itemTagName)" );
+			$stmt->bindParam('itemTagName', $itemTagName);
+			$stmt->bindParam('itemSize', $itemSize);							
+			$stmt->bindParam('itemColor', $itemColor);			
+			$stmt->execute();				
+		}
 	}
 	/*
 	$theDBA->close();
