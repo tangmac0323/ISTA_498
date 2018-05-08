@@ -1,11 +1,13 @@
+
 <?php
 include('header.php');
 ?>
+
+
 <script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript">
 
 
-    //alert($.cookie("num"))
+
 </script>
     <div class="clear" style="margin-top: 77px;">
         <div class="main1 wrap clear">

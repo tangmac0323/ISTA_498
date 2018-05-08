@@ -196,7 +196,7 @@ session_start();
                     }
 					else if (data == 2) {
 						alert('Login as Administrator Now ');
-                        window.location.href = 'admin.php';
+                        window.location.href = 'adminAddItem.php';
 					}else{
                         alert('Account or password is wrong');
                     }

@@ -56,8 +56,7 @@ CREATE TABLE ItemInfo (
 CREATE TABLE ShoppingCart (
 	userName	VARCHAR(50) NOT NULL,
 	itemID		INT NOT NULL,
-	quantity	INT,
-	PRIMARY KEY(userName)
+	quantity	INT
 );
 
 

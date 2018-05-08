@@ -50,7 +50,7 @@
             $stmt->execute ();
             $check = $stmt->fetchAll ( PDO::FETCH_ASSOC );
             if ($check){
-                $exist = true;
+                return true;
             }
             return false;
         }
@@ -101,15 +101,82 @@
 		}
 		
 		
+		public function checkItemInCart($username, $itemID) {
+			$stmt = $this->DB->prepare ("SELECT * FROM ShoppingCart WHERE username=:username AND itemID=:itemID");
+			$stmt->bindParam ( 'username', $username);
+			$stmt->bindParam ( 'itemID', $itemID);
+			
+			$stmt->execute ();	
+
+			$check = $stmt->fetchAll ( PDO::FETCH_ASSOC );
+            if ($check){
+                return true;
+            }
+            return false;
+		}
 		
-		// add item into shopping cart
-		public function addItem2Cart($username, $itemID, $quantity) {
-			$stmt = $this->DB->prepare ("INSERT INTO ShoppingCart (userName, itemID, quantity) VALUES(:username, :itemID, :quantity)");
+		public function increaseItemInCart($username, $itemID, $quantity) {
+			$stmt = $this->DB->prepare( "UPDATE ShoppingCart SET quantity=quantity+:quantity WHERE username=:username AND itemID=:itemID" );
 			$stmt->bindParam ( 'username', $username);
 			$stmt->bindParam ( 'itemID', $itemID);
 			$stmt->bindParam ( 'quantity', $quantity);
 			
-			$stmt->execute ();
+			$stmt->execute ();	
+		}
+		
+		public function decreaseItemInCart($username, $itemID, $quantity) {
+			$stmt = $this->DB->prepare( "UPDATE ShoppingCart SET quantity=quantity-:quantity WHERE username=:username AND itemID=:itemID" );
+			$stmt->bindParam ( 'username', $username);
+			$stmt->bindParam ( 'itemID', $itemID);
+			$stmt->bindParam ( 'quantity', $quantity);
+			
+			$stmt->execute ();	
+		}
+		
+		public function updateItemInCart($username, $itemID, $quantity) {
+			$stmt = $this->DB->prepare( "UPDATE ShoppingCart SET quantity=:quantity WHERE username=:username AND itemID=:itemID" );
+			$stmt->bindParam ( 'username', $username);
+			$stmt->bindParam ( 'itemID', $itemID);
+			$stmt->bindParam ( 'quantity', $quantity);
+			
+			$stmt->execute ();	
+		}
+		
+		
+		// add item into shopping cart
+		public function addItem2Cart($username, $itemID, $quantity) {
+			
+			// check if the item is already in cart
+			$stmt = $this->DB->prepare ("SELECT * FROM ShoppingCart WHERE username=:username AND itemID=:itemID");
+			$stmt->bindParam ( 'username', $username);
+			$stmt->bindParam ( 'itemID', $itemID);
+			
+			$stmt->execute ();	
+			$check = $stmt->fetchAll ( PDO::FETCH_ASSOC );
+			
+			if ($check == false){
+				$stmt = $this->DB->prepare ("INSERT INTO ShoppingCart (userName, itemID, quantity) VALUES(:username, :itemID, :quantity)");
+				$stmt->bindParam ( 'username', $username);
+				$stmt->bindParam ( 'itemID', $itemID);
+				$stmt->bindParam ( 'quantity', $quantity);
+			
+				$stmt->execute ();
+			}
+			else{
+				$stmt = $this->DB->prepare( "UPDATE ShoppingCart SET quantity=quantity+:quantity WHERE username=:username AND itemID=:itemID" );
+				$stmt->bindParam ( 'username', $username);
+				$stmt->bindParam ( 'itemID', $itemID);
+				$stmt->bindParam ( 'quantity', $quantity);
+				
+				$stmt->execute ();	
+			}
+			
+		}
+		
+		
+		public function cleanZeroItemInCart() {
+			$stmt = $this->DB->prepare ("DELETE FROM ShoppingCart WHERE quantity=0");			
+			$stmt->execute ();	
 		}
 		
 		public function checkoutCart($username) {			
@@ -119,12 +186,104 @@
 			$stmt->execute();
 		}
 		
-		public function checkoutOrder($username) {
+		public function recordOrder($username) {
 			$stmt = $this->DB->prepare ("INSERT INTO CustOrder (userName) VALUES(:username)");
+			$stmt->bindParam ('username', $username);			
+			$stmt->execute();
+			
+			// get the order ID
+			$stmt = $this->DB->prepare ("SELECT * 
+										FROM CustOrder 
+										WHERE userName=:username 
+										AND 
+										orderID = (SELECT MAX(orderID) 
+													FROM CustOrder 
+													WHERE username=:username)");
+			$stmt->bindParam ('username', $username);										
+			$stmt->execute();
+			
+			return $stmt->fetch ( PDO::FETCH_ASSOC );
+			
+		}
+		
+		public function getOrderInfoByUser($username) {
+			$stmt = $this->DB->prepare ( "SELECT * 
+										FROM CustOrder
+										WHERE username=:username
+										ORDER BY CustOrder.orderID DESC" );
 			$stmt->bindParam ('username', $username);
 			
 			$stmt->execute();
+			
+			return $stmt->fetchAll ( PDO::FETCH_ASSOC );
+			
 		}
+		
+		public function getOrderInfoByOrder($orderID, $username) {
+			$stmt = $this->DB->prepare ( "SELECT * FROM CustOrder
+													INNER JOIN ItemSold
+													ON ItemSold.orderID=CustOrder.orderID
+													INNER JOIN ItemInfo
+													ON ItemSold.itemID=ItemInfo.itemID
+													WHERE CustOrder.username=:username
+													AND CustOrder.orderID=:orderID
+													ORDER BY CustOrder.orderID DESC" );
+			$stmt->bindParam ('username', $username);
+			$stmt->bindParam ('orderID', $orderID);
+			
+			$stmt->execute();
+			
+			return $stmt->fetchAll ( PDO::FETCH_ASSOC );
+			
+		}
+		
+		public function addItemToOrder($itemID, $orderID, $quantity) {
+			$stmt = $this->DB->prepare ("INSERT INTO ItemSold 
+										VALUES(:itemID, :orderID, :quantity)");
+			$stmt->bindParam ('itemID', $itemID);
+			$stmt->bindParam ('orderID', $orderID);
+			$stmt->bindParam ('quantity', $quantity);
+			
+			$stmt->execute();
+		}
+		
+		
+		public function summaryCartCost($username) {
+			$stmt = $this->DB->prepare ("SELECT SUM(itemTotalCost) as 'totalCost'
+										FROM (
+										SELECT (itemPrice * quantity) as 'itemTotalCost'
+										FROM ShoppingCart
+										INNER JOIN ItemInfo
+										ON ShoppingCart.itemID=ItemInfo.itemID
+										INNER JOIN ItemTagDescription
+										ON ItemTagDescription.itemTagName=ItemInfo.itemTagName
+										WHERE username=:username) AS SUBTABLE1");
+										
+			$stmt->bindParam('username', $username);
+
+			
+			$stmt->execute();			
+			return $stmt->fetch( PDO::FETCH_ASSOC );								
+		}
+		
+		public function summaryCartQuantity($username) {
+			$stmt = $this->DB->prepare ("SELECT SUM(quantity) as 'total'
+										FROM ShoppingCart
+										INNER JOIN ItemInfo
+										ON ShoppingCart.itemID=ItemInfo.itemID
+										INNER JOIN ItemTagDescription
+										ON ItemTagDescription.itemTagName=ItemInfo.itemTagName
+										WHERE username=:username") ;
+										
+			$stmt->bindParam('username', $username);	
+			$stmt->execute();			
+			$check = $stmt->fetch( PDO::FETCH_ASSOC );	
+            if ($check){
+                return $check;
+            }
+            return 0;			
+		}
+		
 		
 		public function getOrderAsArray($username) {
 			$stmt = $this->DB->prepare ("SELECT * FROM CustOrder WHERE username=:username");
@@ -144,8 +303,13 @@
 			return $stmt->fetchAll( PDO::FETCH_ASSOC );		
 		}
 		
+		// get the info of the shopping cart
 		public function getCartInfo($username) {
-			$stmt = $this->DB->prepare ("SELECT * FROM ShoppingCart WHERE username=:username");
+			$stmt = $this->DB->prepare ("SELECT itemTagName, itemSize, itemColor, quantity, ItemInfo.itemID 
+										FROM ShoppingCart 
+										INNER JOIN ItemInfo 
+										ON ShoppingCart.itemID=ItemInfo.itemID 
+										WHERE ShoppingCart.username=:username");
 			$stmt->bindParam('username', $username);
 			
 			$stmt->execute();			
@@ -160,11 +324,58 @@
 			return $stmt->fetchAll( PDO::FETCH_ASSOC );	
 		}
 		
-    }
+		public function getItemTagInfoByTag($itemTag) {
+			$stmt = $this->DB->prepare ("SELECT * FROM ItemTagDescription WHERE itemTagName=:itemTag");
+			$stmt->bindParam('itemTag',$itemTag);			
+			$stmt->execute();			
+			return $stmt->fetchAll( PDO::FETCH_ASSOC );				
+		}
+		
+		public function getItemInfoByID($itemID) {
+			$stmt = $this->DB->prepare("SELECT * FROM ItemInfo WHERE itemID=:itemID");
+			$stmt->bindParam('itemID',$itemID);			
+			$stmt->execute();			
+			return $stmt->fetchAll( PDO::FETCH_ASSOC );					
+
+		}
+		
+		public function getSizeArrayByColorAndItemTag($itemTag, $itemColor) {
+			$stmt = $this->DB->prepare ("SELECT itemSize FROM ItemInfo WHERE itemTagName=:itemTag AND itemColor=:itemColor");
+			$stmt->bindParam('itemColor', $itemColor);
+			$stmt->bindParam('itemTag', $itemTag);			
+			$stmt->execute();
+			
+			return $stmt->fetchAll( PDO::FETCH_ASSOC );	
+		}
+		
+		public function getSizeArrayByItemTag($itemTag) {
+			$stmt = $this->DB->prepare ("SELECT DISTINCT itemSize FROM ItemInfo WHERE itemTagName=:itemTag");
+			$stmt->bindParam('itemTag', $itemTag);			
+			$stmt->execute();
+			
+			return $stmt->fetchAll( PDO::FETCH_ASSOC );	
+		}
+		
+		public function getItemIDbyInfo($itemColor, $itemSize, $itemTagName) {
+			$stmt = $this->DB->prepare ("SELECT itemID FROM ItemInfo WHERE (itemColor=:itemColor AND itemSize=:itemSize AND itemTagName=:itemTagName)");
+			$stmt->bindParam('itemTagName', $itemTagName);
+			$stmt->bindParam('itemColor', $itemColor);
+			$stmt->bindParam('itemSize', $itemSize);
+			
+			$stmt->execute();			
+			return $stmt->fetch( PDO::FETCH_ASSOC );	
+		}
+		
+		
+		public function getCartNumber(){
+			return;
+		}
+
+	}
 	/*
 	$theDBA->close();
 	*/
-/*	
+	/*	
 	//$verify = $theDBA -> verifyAdmin ('zhangyifan@hotmail.com', 'woyemeibanfa');
 	$verify = $theDBA -> verifyCustomer ('a@hotmail.com', 'a');
 	
@@ -191,5 +402,11 @@
 		echo $info['fullName'];
 	}
 	*/
+	
+	/*
+	$userInfoArray = $theDBA -> getItemIDbyInfo('BLACK', '36', 'ItemA');
+	print_r($userInfoArray['itemID']);
+	*/
+	
 
 ?>	

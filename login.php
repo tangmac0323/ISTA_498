@@ -34,6 +34,21 @@ if($_POST){
 		if ($verify == true){
 			$_SESSION['islogin'] = 1;
 			$_SESSION['name'] = $username;
+			
+			
+			if (isset($_SESSION['name'])){
+				$totalQuantity = $theDBA->summaryCartQuantity($_SESSION['name']);
+				if ($totalQuantity != 0){
+					$_SESSION['CartNum'] =  $totalQuantity['total'];
+				}
+				else{
+					$_SESSION['CartNum'] =  0;
+				}
+			}
+			else{
+				$_SESSION['CartNum'] =  0;
+			}			
+			
 			echo 1;
 		}else {
 			$_SESSION['islogin'] = 0;

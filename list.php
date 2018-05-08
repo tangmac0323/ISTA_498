@@ -39,357 +39,82 @@ include('header.php');
 		?>
 
         <div class="tab_box_list">
-		
+			<!-- Women-->
             <ul class="product_list clear">
+				<?php 
+				$index = 0;
+				foreach ($itemTagArray_women as $itemTag_women) {
+					$index++;
+				?>
                 <li>
                     <div class="pic">
-                        <a href="show.php?itemTag=<?php echo $itemTagArray_women[0]['itemTagName'] ?>&cate=Women">
-							<img src="https://static.oysho.cn/6/photos2/2018/V/3/1/p/0055/351/699/0055351699_1_1_4.jpg?t=1519233229425" alt="">
+                        <a href="show.php?itemTag=<?php echo $itemTag_women['itemTagName'] ?>&cate=Women">
+							<img src="images/Cate<?php echo $curCate; ?>/Women/<?php echo $itemTag_women['itemTagName']; ?>_preview.jpg" alt="">
                         </a>
                     </div>
-                    <p class="produce_name"><?php echo $itemTagArray_women[0]['itemTagName'] ?></p>
-                    <p class="infor"><?php echo $itemTagArray_women[0]['itemDescription'] ?></p>
+                    <p class="produce_name"><?php echo $itemTag_women['itemTagName'] ?></p>
+					<!--
+                    <p class="infor"><?php echo $itemTag_women['itemDescription'] ?></p>
+					-->
                     <p class="price">
-                      US $<?php echo $itemTagArray_women[0]['itemPrice'] ?>
+                      USD <?php echo $itemTag_women['itemPrice'] ?>
                     </p>
                     <p class="size"></p>
                 </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="https://static.oysho.cn/6/photos2/2018/V/3/1/p/1217/017/800/1217017800_1_1_4.jpg?t=1522254338262" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      US $250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="https://static.oysho.cn/6/photos2/2018/V/3/1/p/0242/365/699/0242365699_2_2_4.jpg?t=1522775091535" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      US $250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="https://static.oysho.cn/6/photos2/2018/V/3/1/p/0282/368/701/0282368701_1_1_4.jpg?t=1519829456044" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      US $250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="https://static.oysho.cn/6/photos2/2018/V/3/1/p/0242/365/699/0242365699_2_3_4.jpg?t=1522775091535" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      US $250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="https://static.oysho.cn/6/photos2/2018/V/3/1/p/0282/368/701/0282368701_2_2_4.jpg?t=1519829456044" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      US $250
-                    </p>
-                    <p class="size"></p>
-                </li>
+				<?php }
+				?>
             </ul>
+			<!-- Jewelry -->
             <ul class="product_list clear" style="display:none;">
+				<?php 
+				$index = 0;
+				foreach ($itemTagArray_jewelry as $itemTag_jewelry) {
+					$index++;
+				?>
                 <li>
                     <div class="pic">
-                        <a href="show.php">
-                            <img src="images/2.jpg" alt="">
+                        <a href="show.php?itemTag=<?php echo $itemTag_jewelry['itemTagName'] ?>&cate=Jewelry">
+							<img src="images/Cate<?php echo $curCate; ?>/Jewelry/<?php echo $itemTag_jewelry['itemTagName']; ?>_preview.jpg" alt="">
                         </a>
                     </div>
-                    <p class="produce_name">alice+abc</p>
-                    <p class="infor">Sherily Cupcakes大号小包</p>
+                    <p class="produce_name"><?php echo $itemTag_jewelry['itemTagName'] ?></p>
+					<!--
+                    <p class="infor"><?php echo $itemTag_jewelry['itemDescription'] ?></p>
+					-->
                     <p class="price">
-                        us$270
+                      USD <?php echo $itemTag_jewelry['itemPrice'] ?>
                     </p>
                     <p class="size"></p>
                 </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-
-
+				<?php }
+				?>			
             </ul>
+			<!-- Men -->
             <ul class="product_list clear" style="display:none;">
+  				<?php 
+				$index = 0;
+				foreach ($itemTagArray_men as $itemTag_men) {
+					$index++;
+				?>
                 <li>
                     <div class="pic">
-                        <a href="show.php">
-                          <img src="images/3.jpg" alt="">
+                        <a href="show.php?itemTag=<?php echo $itemTag_men['itemTagName'] ?>&cate=Men">
+							<img src="images/Cate<?php echo $curCate; ?>/Men/<?php echo $itemTag_men['itemTagName']; ?>_preview.jpg" alt="">
                         </a>
                     </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
+                    <p class="produce_name"><?php echo $itemTag_men['itemTagName'] ?></p>
+					<!--
+                    <p class="infor"><?php echo $itemTag_men['itemDescription'] ?></p>
+					-->
                     <p class="price">
-                      us$250
+                      USD <?php echo $itemTag_men['itemPrice'] ?>
                     </p>
                     <p class="size"></p>
                 </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
+				<?php }
+				?>	              
             </ul>
-            <ul class="product_list clear" style="display:none;">
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/4.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-            </ul>
-            <ul class="product_list clear" style="display:none;">
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/5.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-                <li>
-                    <div class="pic">
-                        <a href="show.php">
-                          <img src="images/pic02.jpg" alt="">
-                        </a>
-                    </div>
-                    <p class="produce_name">aglifdgf</p>
-                    <p class="infor">haohaoa</p>
-                    <p class="price">
-                      us$250
-                    </p>
-                    <p class="size"></p>
-                </li>
-            </ul>
+            
         </div>
      </div>
    </div>

@@ -3,6 +3,9 @@
 include('header.php');
 //session_start();
 
+if(isset($_SESSION['name'])){
+	
+}
 
 ?>
    <div class="section" style="margin-top: 77px;">
@@ -10,69 +13,35 @@ include('header.php');
           <div class="fl content_f">
 				<ul>
 					<li>
-						<a href="member.php">My account</a>
+						<a href="adminAddItem.php">Add Item</a>
 					</li>
 					<li>
-						<a href="order.php">My order</a>
+						<a href="adminUpdateItem.php">Update Item</a>
 					</li>
 					<li>
-						<a href="cart.php">My shopping cart</a>
-					</li>
-					<li>
-						<a href="index.php">exit</a>
+						<a href="logout.php?mode=true">Logout</a>
 					</li>
 				</ul>
           </div>
           <div class="fr content_r">
-				<div style="overflow-y:scroll;height:320px;">		
-					<div id="accordion">
-						<?php 
-							if(isset($_SESSION['name'])){
-								$orderArray = $theDBA->getOrderInfoByUser($_SESSION['name']);
-								$index = 0;
-								$offset = '';
-							}
-							if ($orderArray != null) {
-								foreach ($orderArray as $order) {
-									$index++;
-									if ($index > 9) {
-										break;
-									}
-									if ($index == 1) { $offset = 'One';}
-									else if ($index == 2) { $offset = 'Two';}
-									else if ($index == 3) { $offset = 'Three';}
-									else if ($index == 4) { $offset = 'Four';}
-									else if ($index == 5) { $offset = 'Five';}
-									else if ($index == 6) { $offset = 'Six';}
-									else if ($index == 7) { $offset = 'Seven';}
-									else if ($index == 8) { $offset = 'Eight';}
-									else if ($index == 9) { $offset = 'Nine';}
-									?>
-									<div class="card">
-										<div class="card-header" id="heading<?php echo $offset;?>">
-										<h5 class="mb-0">
-											<button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $offset;?>" aria-expanded="true" aria-controls="collapse<?php echo $offset;?>">
-												<?php echo "Order ID: ".$order['orderID']." Order Date: ".$order['orderDate'];?>
-											</button>
-										</h5>
-										</div>
-
-										<div id="collapse<?php echo $offset;?>" class="collapse show" aria-labelledby="heading<?php echo $offset;?>" data-parent="#accordion">
-											<div class="card-body" style="overflow-y:scroll;height:80px;">
-												<?php 
-													$orderInfoArray = $theDBA->getOrderInfoByOrder($order['orderID'], $_SESSION['name']);
-													foreach ($orderInfoArray as $orderInfo) {	
-												?>
-												<div><font color="blue">  ItemName: </font><?php echo $orderInfo['itemTagName']; ?><font color="blue">  ItemSize: </font><?php echo $orderInfo['itemSize']; ?><font color="blue">  ItemColor: </font><?php echo $orderInfo['itemColor']; ?><font color="blue">	Quantity: </font><?php echo $orderInfo['quantity']; ?></div>
-												<?php }?>
-											</div>
-										</div>
-									</div>
-							<?php }} ?>
-					</div>				
-				</div>
-
-          </div>		
+              <div>
+                <input class="na mr40" type="text" name="itemTagName" id="itemTagName" placeholder="ItemTagName:" value="">
+                <select  id="select" name="select">
+					<option value="">ItemCategory：</option>
+					<option value="Women" >Women</option>
+					<option value="Women" >Men</option>
+					<option value="Women" >Jewelry</option>
+                </select>
+              </div>
+              <div class="mt35">
+                  <input class="Address" type="text" name="itemDescription" id="itemDescription" placeholder="ItemDescription：" value="">
+              </div>
+              <div class="mt35">					
+                  <input class="na mr40" type="text" name="itemSize" id="itemSize" placeholder="ItemSize：" value="">
+                  <input class="na" type="text" name="telno" id="telno" placeholder="Tel：" value="">
+                </div>
+              <input type="submit" value="Submit" class="save_btn" id="submitbtn" name="submitbtn">
+          </div>
       </div>
    </div>
     
@@ -175,13 +144,13 @@ include('header.php');
 	$(".close").click(function (){
 		  $(this).parent().fadeOut();
 		  $(".fixed").hide();
-		  })
+		})
     
 	
 </script>
 <script>
 $(function(){
-	$('#savebtn').click(function () {
+	$('#submitbtn').click(function () {
 			
 			//console.log('save');
 			// extract the value from the input form
@@ -210,10 +179,6 @@ $(function(){
 				state = 'N/A';
 			}
 			
-			var session_loginname = document.getElementById("session").value;
-			
-			
-			console.log(session_loginname);
 				
 			$.ajax({
 					url:'updateUserInfo.php',

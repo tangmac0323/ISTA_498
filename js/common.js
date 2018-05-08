@@ -16,7 +16,7 @@ $(".my").click(function (){
                 window.location.href = 'member.php';
             }
 			else if (data == "2") {
-				window.location.href = 'admin.php';
+				window.location.href = 'adminAddItem.php';
 			}
 			else {
                 $(".fixed").show();

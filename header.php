@@ -1,3 +1,6 @@
+
+
+
 <?php
 session_start();
 require_once('./DatabaseAdaptor.php');
@@ -9,6 +12,21 @@ if(!isset($_SESSION['islogin'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+<!-- bootstrap plugin -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -104,7 +122,7 @@ if(!isset($_SESSION['islogin'])){
                                 <b>></b>
                             </li>
                             <li>
-                                <a href="list.php">Clothing, Shoes & Jewelry</a>
+                                <a href="list.php?cate=14">Clothing, Shoes & Jewelry</a>
                                 <b>></b>
                             </li>
                             <li>
@@ -124,8 +142,17 @@ if(!isset($_SESSION['islogin'])){
                 </li>
                 <li class="bt3">
                     <i class="shuliang" style="display: block;">
-                        <span class="number" id="number">0</span>
+                        <span class="number" id="number"><?php
+							if (isset($_SESSION['CartNum'])) {
+								echo $_SESSION['CartNum'];
+							}
+							else{
+								echo 0;
+							}
+
+						?></span>
                     </i>
+					<!--
                     <div style="position: absolute; width:283px;height: 343px;border: 1px solid #7d7c7c;background: #ffffff;z-index:3;right: 20px;  display: none;" class="menu_list2" id="menu_list2">
                         <ul id="cartlist">
                             <li  style="padding-left: 10px; padding-right: 10px; padding-top: 10px;">
@@ -141,6 +168,7 @@ if(!isset($_SESSION['islogin'])){
                         </ul>
                         <div style="width: 260px; margin: 0 auto; background: #000000; height: 40px; text-align: center;color: #fffffF; line-height: 40px; cursor: pointer; bottom: 4px;position: relative; top: 284px;" id="checkout"> CHECKOUT</div>
                     </div>
+					-->
                 </li>
                 <li class="bt4">
                     <i class="my">
@@ -151,17 +179,12 @@ if(!isset($_SESSION['islogin'])){
     </div>
 </div>
     <script type="text/javascript">
+		
+		/*
         $(function () {
-            if($.cookie("num")>0){
-                $('#number').html($.cookie("num"));
-                $('#cartlist').show();
-            }else{
-                $('#number').html('0');
-                $('#cartlist').hide();
-            }
-
-
-        });
+             $('#number').show();
+		});
+		*/
 
 
 
@@ -174,30 +197,4 @@ if(!isset($_SESSION['islogin'])){
         });
 		
 		
-        
-        
-        $(function () {
-            $('#checkout').click(function () {
-                $.ajax({
-                    url:'ajaxlogin.php',
-                    type:'POST', 	//GET
-                    async:true,     //或false,是否异步
-                    data:{
-                        name:1
-                    },
-
-                    success:function(data){
-                        if(data == 1){
-                            $.cookie("num",null);
-                            alert('The end of the demo');
-                            window.location.reload();
-                            window.location.href = 'member.php';
-                        }else{
-                            alert('Please login');
-                        }
-                    },
-                })
-            })
-        })
-
  // document.write($.cookie("num"))</script>

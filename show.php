@@ -12,6 +12,7 @@ if (isset ( $_GET ['itemTag'] )) {
 				//alert($_GET ['cate']);
 	$curTag =  $_GET ['itemTag'];
 }
+
 ?>
 <style>
     #u1 li{overflow: hidden;}
@@ -19,6 +20,7 @@ if (isset ( $_GET ['itemTag'] )) {
 	#u1 li a{ height:326px; overflow:hidden;display:block;}
 </style>
    <div class="wrap" style="margin-top: 77px;;">
+   
      <!-- 面包屑导航 -->
      <div class="mianbao_nav">
         <a href="index.php">Home </a>
@@ -27,6 +29,11 @@ if (isset ( $_GET ['itemTag'] )) {
         <a href="">/</a> 
         <a href=""><?php echo $curTag?></a>
      </div>
+	 
+	<input type="hidden" id="hiddencurTag" name="hiddencurTag" value="<?php echo $curTag;?>">
+	<input type="hidden" id="hiddencurCate" name="hiddencurCate" value="<?php echo $curCate;?>">
+	<input type="hidden" id="hiddencurName" name="hiddencurName" value="<?php echo $_SESSION['name'];?>"> 
+	
      <div class="clear">
        <div class="img_l fl">
           <div class="preview clear">
@@ -36,11 +43,11 @@ if (isset ( $_GET ['itemTag'] )) {
                   <div id="imageMenu">
                     <ul>
               
-                      <li id="onlickImg"><img src="Image/Women/01.jpg" width="68" height="68" alt="img_small_01"/></li>
+                      <li id="onlickImg"><img src="images/cate14/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_01.jpg" width="68" height="68" alt="img_small_01"/></li>
               
-                      <li><img src="Image/Women/02.jpg" width="68" height="68" alt="img_small_02"/></li>
+                      <li><img src="images/cate14/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_02.jpg" width="68" height="68" alt="img_small_02"/></li>
               
-                      <li><img src="Image/Women/03.jpg" width="68" height="68" alt="img_small_03"/></li>
+                      <li><img src="images/cate14/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_03.jpg" width="68" height="68" alt="img_small_03"/></li>
 					  
                     </ul>
               
@@ -50,7 +57,7 @@ if (isset ( $_GET ['itemTag'] )) {
 
               <div id="vertical" class="bigImg">
             
-                <img src="Image/Women/01.jpg" width="445" height="666" alt="img_medium" id="midimg" />
+                <img src="images/cate14/Women/<?php echo $curTag; ?>/<?php echo $curTag; ?>_small_01.jpg" width="445" height="666" alt="img_medium" id="midimg" />
             
                 <div style="display:none;" id="winSelector"></div>
             
@@ -67,7 +74,8 @@ if (isset ( $_GET ['itemTag'] )) {
        </div>
        <div class="fr img_r">
           <div class="paroduct_top clear">
-              <h3 class="fl">SPIKY JACK</h3>
+			
+              <h3 class="fl"><?php  echo $curTag;?></h3>
               <div class="share fr">
                   <!-- JiaThis Button BEGIN -->
                   <div class="jiathis_style" style="width: 115px;float:left;margin:2px 0 0 0;overflow: visible;">
@@ -79,47 +87,121 @@ if (isset ( $_GET ['itemTag'] )) {
                   <!-- JiaThis Button END -->
               </div>
           </div>
-          <p class="price_detail">£225.00</p>
-          <p class="information">Sleeveless Soft Wool Feli Dress in marble grey. The classic shift silhouette is reimagined in a sweater-inspired knit, with directional asymmetric sash detail lending a contemporary meets feminine edge. Ideal layered over long-sleev</p>
+          <p class="price_detail">USD <?php 
+				$itemTagInfo = $theDBA->getItemTagInfoByTag($curTag);
+				echo $itemTagInfo[0]['itemPrice'];
+		  ?></p>
+          <p class="information"><?php
+				$itemTagInfo = $theDBA->getItemTagInfoByTag($curTag);
+				echo $itemTagInfo[0]['itemDescription'];
+		  ?></p>
           <div>
             <p class="mingc">Colours</p>
+			<!-- hidden element to store color 
+			<input type="hidden" id="hiddencolor" name="hiddencolor" value="">
+			-->
             <div class="color">
-                <span class="on"></span>
-                <span></span>
-                <span></span>
+                <span class="on" id="BROWN"></span>
+                <span id="BLACK"></span>
+                <span id="WHITE"></span>
             </div>
+			<script>
+				colorMark = $(".color span:first-child").attr('id');
+				//document.getElementById("hiddencolor").textContent = colorMark;
+				
+				/*
+				function getItemSizeArray() {
+					var curItemTag = document.getElementById("hiddencurTag").value;
+					
+					$.ajax({
+						type: 'GET',
+						url: 'getSizeList.php',
+						data:{
+							itemColor:colorMark,
+							itemTagName:curItemTag
+						},
+						
+						success:function(data) {
+							var obj = jQuery.parseJSON(data);
+							
+							//function showObjectQuery(obj)
+							
+							//console.log(curItemTag);
+							//console.log(colorMark);
+							//console.log(obj);
+							
+							// write into array
+							var content = "";
+							$.each(obj, function (index, val) {
+								if (index == 0) {
+									content += "<span class='on' >" + val['itemSize'] + "</span>";
+								}
+								else {
+									content += "<span>" + val['itemSize'] + "</span>";
+								}
+								//console.log(index);
+							});
+							var ele = document.getElementById("size_area");
+							ele.innerHTML = content;
+							
+							
+							var codes = ele.getElementsByTagName("script");   
+							for(var i=0;i<codes.length;i++){  
+								eval(codes[i].text);  
+							} 
+						
+						}
+						
+					});
+				}
+				*/
+			</script>
           </div>
+		  <br>
+		  <br>
           <div>
             <p class="mingc">Size</p>
-            <div class="size_detail">
-				<script>
-					// global var
-					size = '32A';
-				</script>
-                <span class="on" >32A</span>
-                <span>32B</span>
-                <span>32C</span>
-                <span>32D</span>
-                <span>33B</span>
-                <span>33C</span>
-                <span>33D</span>
+			
+            <div class="size_detail" id="size_area">
+				<?php
+					$sizeArray = $theDBA->getSizeArrayByItemTag($curTag);
+					
+					//print_r($sizeArray);
+					
+					$index = 0;
+					
+					foreach ($sizeArray as $sizeNum) {
+						if ($index == 0) {
+					?><span class="on" ><?php echo $sizeNum['itemSize']; ?></span><?php 
+					}else{ ?><span><?php echo $sizeNum['itemSize']; ?></span><?php
+						} $index++;}
+					
+					
+					/*
+					foreach ($sizeArray as $sizeNum) {
+					?><span><?php echo $sizeNum['itemSize'];?></span><?php }
+					*/
+				?>			
             </div>
+			<script>
+				size = $(".size_detail span:first-child").text();
+			</script>
           </div>
           <div>
             <p class="mingc">Quantity</p>
             <div class="clear">
                 <div class="fl clear">
                    <span class="fl bbt jian">-</span>
-                    <input type="text" class="fl" id="select_num" value="1">
+						<input type="text" class="fl" id="select_num" value="1">
                     <span class="fl bbt zj">+</span>
                 </div>
-                <button class="adding fl">ADDING TO BASKET</button>
+                <button class="adding fl">ADDING TO CART</button>
             </div>
             
           </div>
        </div>
      </div>
-     <div class="PRODUCTS_DETAIL">
+     <div class = "PRODUCTS_DETAIL">
         <h3>PRODUCTS_DETAIL</h3>
         <ul class="ll">
           <li>
@@ -147,7 +229,7 @@ if (isset ( $_GET ['itemTag'] )) {
           </li>
         </ul>
      </div>
-     <div class="PRODUCTS_DETAI ">
+     <div class="PRODUCTS_DETAIL">
         <h3>PRODUCTS_DETAIL</h3>
         <ul class="u1" id="u1">
          <li>
@@ -300,7 +382,8 @@ var count = $("#imageMenu li").length - 5; /* 显示 6 个 li标签内容 */
 var interval = $("#imageMenu li:first").height();
 
 var curIndex = 0;
-console.log(interval)
+
+console.log(interval);
 
 
 $('.scrollbutton').click(function(){
@@ -580,6 +663,13 @@ $.fn.decorateIframe = function(options) {
 
 $(".color span").click(function (){
     $(this).addClass('on').siblings().removeClass();
+	colorMark = $(this).attr('id');
+	//var curItemTag = document.getElementById("hiddencurTag").value;
+	//var curItemCate = document.getElementById("hiddencurCate").value;
+	
+	//window.location.href = 'show.php?color=' + colorMark + "&itemTag=" + curItemTag + "&cate=" + curItemCate;
+	//getItemSizeArray();
+	//document.getElementById("hiddencolor").textContent = colorMark;
 })
 
 $(".size_detail span").click(function (){
@@ -605,18 +695,67 @@ $(".jian").click(function (){
 
 
 $(".adding").click(function (){
-    var quantity = parseInt($("#select_num").val())+parseInt($(".number").html()); 
+    var quantity = parseInt($("#select_num").val()); 
+	var curItemTag = document.getElementById("hiddencurTag").value;
+	var curItemCate = document.getElementById("hiddencurCate").value;	
+	
+	var curName = document.getElementById("hiddencurName").value;
+	
+	if (curName == null){
+		alert('Please Login First');
+		return;
+	}
 	
 	console.log(size);
+	console.log(quantity);
+	console.log(colorMark);
+	console.log(curItemTag);
+	console.log(curItemCate.toUpperCase());
+	console.log(curName);
+	
+	
+	$.ajax({
+		url:'addToCart.php',
+		type:'POST',
+		async:true,
+		data:{
+			username:curName,
+			itemTagName:curItemTag,
+			itemCate:curItemCate,
+			itemColor:colorMark,
+			quantity:quantity,
+			itemSize:size			
+		},
+		
+		success:function(data) {
+			
+			//console.log(data.trim());
+			
+			if (data == 1) {
+				alert("Add to cart done, continue");
+				window.location.reload();
+
+			}
+			else if (data == 2){
+				alert( "Dude you are the manager. Go work, no shopping XD" );
+			}
+			else {
+				alert("Please login first");
+			}
+			
+		}
+	
+	});
+	
 	
     $('#menu_list2').show();
     $('#cartlist').show();
 })
 
-$(document).ready(function() {
-    $(".number").html($.cookie("num"));
-});
 
+$(document).ready(function() {
+    $('#number').show();
+});
 
 
   $('#u1 li').hover(function(){
