@@ -436,6 +436,34 @@
 			$stmt->bindParam('itemColor', $itemColor);			
 			$stmt->execute();				
 		}
+		
+		public function getAllItemTagName() {
+			$stmt = $this->DB->prepare ("SELECT itemTagName FROM ItemTagDescription ORDER BY (itemTagName) ASC");
+			$stmt->execute();
+			
+			return $stmt->fetchAll( PDO::FETCH_ASSOC );
+		}
+		
+		public function checkItemTagExist($itemTagName) {
+			$stmt = $this->DB->prepare ( "SELECT * FROM ItemTagDescription
+											WHERE itemTagName=:itemTagName");
+			$stmt->bindParam('itemTagName', $itemTagName);		
+			$stmt->execute();	
+
+			$check = $stmt->fetchAll ( PDO::FETCH_ASSOC );
+            if ($check){
+                return true;
+            }
+            return false;	
+		}
+		
+		public function getCateByItemTag($itemTagName) {
+			$stmt = $this->DB->prepare ("SELECT * FROM ItemTagDescription
+										WHERE itemTagName=:itemTagName");
+			$stmt->bindParam('itemTagName', $itemTagName);	
+			$stmt->execute();		
+			return $stmt->fetch( PDO::FETCH_ASSOC );			
+		}
 	}
 	/*
 	$theDBA->close();
@@ -473,5 +501,9 @@
 	print_r($userInfoArray['itemID']);
 	*/
 	
+	/*
+	$check = $theDBA->checkItemTagExist('ItemA');
+	print_r($check);
+	*/
 
 ?>	

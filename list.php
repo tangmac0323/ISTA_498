@@ -48,8 +48,8 @@ include('header.php');
 				?>
                 <li>
                     <div class="pic">
-                        <a href="show.php?itemTag=<?php echo $itemTag_women['itemTagName'] ?>&cate=Women">
-							<img src="images/Cate<?php echo $curCate; ?>/Women/<?php echo $itemTag_women['itemTagName']; ?>_preview.jpg" alt="">
+                        <a href="show.php?itemTag=<?php echo $itemTag_women['itemTagName'] ?>&cate=WOMEN">
+							<img src="images/Storage/WOMEN/<?php echo $itemTag_women['itemTagName']; ?>_preview.jpg" alt="">
                         </a>
                     </div>
                     <p class="produce_name"><?php echo $itemTag_women['itemTagName'] ?></p>
@@ -73,8 +73,8 @@ include('header.php');
 				?>
                 <li>
                     <div class="pic">
-                        <a href="show.php?itemTag=<?php echo $itemTag_jewelry['itemTagName'] ?>&cate=Jewelry">
-							<img src="images/Cate<?php echo $curCate; ?>/Jewelry/<?php echo $itemTag_jewelry['itemTagName']; ?>_preview.jpg" alt="">
+                        <a href="show.php?itemTag=<?php echo $itemTag_jewelry['itemTagName'] ?>&cate=JEWELRY">
+							<img src="images/Storage/JEWELRY/<?php echo $itemTag_jewelry['itemTagName']; ?>_preview.jpg" alt="">
                         </a>
                     </div>
                     <p class="produce_name"><?php echo $itemTag_jewelry['itemTagName'] ?></p>
@@ -98,8 +98,8 @@ include('header.php');
 				?>
                 <li>
                     <div class="pic">
-                        <a href="show.php?itemTag=<?php echo $itemTag_men['itemTagName'] ?>&cate=Men">
-							<img src="images/Cate<?php echo $curCate; ?>/Men/<?php echo $itemTag_men['itemTagName']; ?>_preview.jpg" alt="">
+                        <a href="show.php?itemTag=<?php echo $itemTag_men['itemTagName'] ?>&cate=MEN">
+							<img src="images/Storage/MEN/<?php echo $itemTag_men['itemTagName']; ?>_preview.jpg" alt="">
                         </a>
                     </div>
                     <p class="produce_name"><?php echo $itemTag_men['itemTagName'] ?></p>

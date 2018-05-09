@@ -61,9 +61,14 @@ if(!isset($_SESSION['islogin'])){
         </a>
         <div class="fr btn_list">
             <ul class="clear">
+
+			    <li class="bt0">
+                    <input type="text" name="bt0_orderID" id="bt0_orderID" value="" placeholder="Search for product.." title="Type in an order ID">
+				</li>
                 <li class="bt1">
-                    <i class="search"></i>
+                    <i class="search" id="searchBtn" name="searchBtn"></i>
                 </li>
+				
                 <li class="bt2">
                     <i class="menu"></i>
                     <div class="menu_list">
@@ -195,6 +200,41 @@ if(!isset($_SESSION['islogin'])){
             $(this).find(".menu_list2").slideUp();
 
         });
+		
+		$(".search").click( function() {
+			
+			var searchText = document.getElementById("bt0_orderID").value;
+			
+			if (searchText == "") {
+				return;
+			}
+			
+			console.log("Searching: " + searchText);
+			
+			$.ajax({
+				url:'searchFunc.php',
+				type:'POST',
+				async:true,
+				data:{
+					searchTarget:searchText,
+				},
+					
+				success:function(data) {
+					//alert(data);			
+					
+					if (data != 0) {
+						console.log("Teleport to the target page");
+						window.location.href = "show.php?itemTag=" + searchText + "&cate=" + jQuery.parseJSON(data);
+					}
+					else{
+						console.log("Target not found");
+					}
+					
+					
+				}	
+			});
+		});
+		
 		
 		
  // document.write($.cookie("num"))</script>

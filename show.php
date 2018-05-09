@@ -25,7 +25,7 @@ if (isset ( $_GET ['itemTag'] )) {
      <div class="mianbao_nav">
         <a href="index.php">Home </a>
         <a href="">/</a>
-        <a href="list.php?cate=<?php echo $curCate ?>"><?php echo $curCate?></a>
+        <a href="list.php?cate=14"><?php echo $curCate?></a>
         <a href="">/</a> 
         <a href=""><?php echo $curTag?></a>
      </div>
@@ -43,11 +43,11 @@ if (isset ( $_GET ['itemTag'] )) {
                   <div id="imageMenu">
                     <ul>
               
-                      <li id="onlickImg"><img src="images/Storage/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_01.jpg" width="68" height="68" alt="img_small_01"/></li>
+                      <li id="onlickImg"><img src="images/Storage/<?php echo $curCate ?>/<?php echo $curTag ?>/<?php echo $curTag ?>_small_01.jpg" width="68" height="68" alt="img_small_01"/></li>
               
-                      <li><img src="images/Storage/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_02.jpg" width="68" height="68" alt="img_small_02"/></li>
+                      <li><img src="images/Storage/<?php echo $curCate ?>/<?php echo $curTag ?>/<?php echo $curTag ?>_small_02.jpg" width="68" height="68" alt="img_small_02"/></li>
               
-                      <li><img src="images/Storage/Women/<?php echo $curTag ?>/<?php echo $curTag ?>_small_03.jpg" width="68" height="68" alt="img_small_03"/></li>
+                      <li><img src="images/Storage/<?php echo $curCate ?>/<?php echo $curTag ?>/<?php echo $curTag ?>_small_03.jpg" width="68" height="68" alt="img_small_03"/></li>
 					  
                     </ul>
               
@@ -229,6 +229,7 @@ if (isset ( $_GET ['itemTag'] )) {
           </li>
         </ul>
      </div>
+	 <
      <div class="PRODUCTS_DETAIL">
         <h3>PRODUCTS_DETAIL</h3>
         <ul class="u1" id="u1">
@@ -279,6 +280,7 @@ if (isset ( $_GET ['itemTag'] )) {
               </li>
         </ul>
      </div>
+	 
    </div>
    <div class="footer">
       <div class="wrapper clear">
