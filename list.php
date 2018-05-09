@@ -45,11 +45,12 @@ include('header.php');
 				$index = 0;
 				foreach ($itemTagArray_women as $itemTag_women) {
 					$index++;
+					$itemTagName_Revised = str_replace(' ', '_', $itemTag_women['itemTagName']);
 				?>
                 <li>
                     <div class="pic">
-                        <a href="show.php?itemTag=<?php echo $itemTag_women['itemTagName'] ?>&cate=WOMEN">
-							<img src="images/Storage/WOMEN/<?php echo $itemTag_women['itemTagName']; ?>_preview.jpg" alt="">
+                        <a href="show.php?itemTag=<?php echo $itemTagName_Revised ?>&cate=WOMEN">
+							<img src="images/Storage/WOMEN/<?php echo $itemTagName_Revised; ?>_preview.jpg" alt="">
                         </a>
                     </div>
                     <p class="produce_name"><?php echo $itemTag_women['itemTagName'] ?></p>
